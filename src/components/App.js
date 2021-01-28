@@ -1,18 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import VideoGamesContainer from "./VideoGamesContainer";
 
 class App extends React.Component {
-
-    componentDidMount() {
-    }
 
     render() {
         return(
             <div>
-                <p>This is the main app component</p>
+                <VideoGamesContainer />
             </div>
         )
     }
+
 }
 
 const mapStateToProps = (state) => {

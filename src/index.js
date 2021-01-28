@@ -9,5 +9,4 @@ const Index = () => (
     </Provider>
 );
 
-
 ReactDOM.render(<Index />, document.getElementById("root"));
