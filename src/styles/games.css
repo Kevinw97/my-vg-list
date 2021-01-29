@@ -1,0 +1,19 @@
+.videoGamesContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 60%;
+    background-color: lightgray;
+}
+
+.videoGameListing .videoGameImage {
+    height: 200px;
+    width: 100%;
+    background-size: cover;
+}
+
+.videoGamesContainer .videoGameListing {
+    width: 20%;
+    height: 300px;
+    padding: 10px;
+}

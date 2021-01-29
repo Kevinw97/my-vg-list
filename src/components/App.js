@@ -4,12 +4,13 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import VideoGamesContainer from "./VideoGamesContainer";
 import Header from "./Header";
 import About from "./About";
+import "../styles/app.css"
 
 class App extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className="app">
                 <BrowserRouter>
                     <Header />
                     <Switch>

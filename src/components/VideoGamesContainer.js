@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { getGames } from '../actions/games'
 import VideoGameListing from "./VideoGameListing";
+import "../styles/games.css"
 
 class VideoGamesContainer extends React.Component {
     constructor(props) {
@@ -15,18 +16,14 @@ class VideoGamesContainer extends React.Component {
         this.props.dispatch(getGames());
     }
 
-
-
     render() {
         return(
-            <div>
-                <div className="videoGamesList">
-                    {this.props.games.isLoaded ?
-                        this.props.games.data.results.map(game => (
-                            <VideoGameListing key={game.id} game={game}/>
-                        )) :
-                        (<p>Loading...</p>)}
-                </div>
+            <div className="videoGamesContainer">
+                {this.props.games.isLoaded ?
+                    this.props.games.data.results.map(game => (
+                        <VideoGameListing key={game.id} game={game}/>
+                    )) :
+                    (<p>Loading...</p>)}
             </div>
         )
     }

@@ -1,11 +1,19 @@
 import React from 'react';
+import "../styles/games.css"
 
 class VideoGameListing extends React.Component {
+    constructor(props) {
+        super(props);
+    }
 
     render() {
         return(
-            <div>
-                <p>{this.props.game.name}</p>
+            <div className="videoGameListing">
+                <div className="videoGameImage" style={{
+                    backgroundImage: `url(${this.props.game.background_image})`
+                }}>
+                </div>
+                <span>{this.props.game.name}</span>
             </div>
         )
     }

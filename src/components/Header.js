@@ -23,37 +23,35 @@ class Header extends React.Component {
 
     render() {
         return(
-            <nav>
-                <div className="header">
-                    <div className="innerHeader">
-                        <div className="navigation">
-                            <NavLink to="/" className="navigationButtonLink">
-                                <div className="navigationButtonContainer">
-                                    <h3>Home</h3>
-                                </div>
-                            </NavLink>
-                            <NavLink to="/about" className="navigationButtonLink">
-                                <div className="navigationButtonContainer">
-                                    <h3>About</h3>
-                                </div>
-                            </NavLink>
-                        </div>
-                    </div>
-                    <div className="rightHeader">
-                        <div className="search">
-                            <div className="searchForm">
-                                <form onSubmit={this.searchSubmit}>
-                                    <input
-                                        type="text"
-                                        placeholder="Search..."
-                                        onChange={this.searchOnChange}
-                                    />
-                                </form>
+            <div className="header">
+                <div className="innerHeader">
+                    <div className="navigation">
+                        <NavLink to="/" className="navigationButtonLink">
+                            <div className="navigationButtonContainer">
+                                <h3>Home</h3>
                             </div>
+                        </NavLink>
+                        <NavLink to="/about" className="navigationButtonLink">
+                            <div className="navigationButtonContainer">
+                                <h3>About</h3>
+                            </div>
+                        </NavLink>
+                    </div>
+                </div>
+                <div className="rightHeader">
+                    <div className="search">
+                        <div className="searchForm">
+                            <form onSubmit={this.searchSubmit}>
+                                <input
+                                    type="text"
+                                    placeholder="Search..."
+                                    onChange={this.searchOnChange}
+                                />
+                            </form>
                         </div>
                     </div>
                 </div>
-            </nav>
+            </div>
         )
     }
 }
