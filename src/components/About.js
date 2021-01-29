@@ -16,7 +16,7 @@ class Header extends React.Component {
 
     render() {
         return(
-            <div>
+            <div className="about pageContainer">
                 <p>About</p>
             </div>
         )

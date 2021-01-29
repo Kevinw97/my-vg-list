@@ -17,7 +17,9 @@ class Header extends React.Component {
     }
 
     searchSubmit = event => {
-        this.props.dispatch(getGames({search:this.state.searchValue}));
+        this.props.dispatch(getGames({ params: {
+            search:this.state.searchValue
+            }}));
         event.preventDefault();
     }
 

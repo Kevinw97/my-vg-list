@@ -3,11 +3,19 @@ import * as RAWG from "../constants/rawg"
 import axios from "axios";
 
 export const getGames = (options = {
-    search: ""
+    params: {
+        search: ""
+    },
+    url: ""
 }) => (dispatch, getState) => {
-    const Url = new URL("api/games", RAWG.BASE_URL);
-    Url.searchParams.append("key", process.env.REACT_APP_RAWG_API_KEY);
-    Url.searchParams.append("search", options.search)
+
+    const Url = options.url || new URL("api/games", RAWG.BASE_URL);
+    if (!options.url) {
+        Url.searchParams.append("key", process.env.REACT_APP_RAWG_API_KEY);
+        if (options.params) {
+            Url.searchParams.append("search", options.params.search);
+        }
+    }
 
     dispatch({type: Actions.GET_GAMES_BEGIN});
 

@@ -7,9 +7,6 @@ import "../styles/games.css"
 class VideoGamesContainer extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            searchValue: ""
-        }
     }
 
     componentDidMount() {

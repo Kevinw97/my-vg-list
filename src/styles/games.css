@@ -1,15 +1,27 @@
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.pageContainer .pageNavigation {
+    display: flex;
+    justify-content: center;
+    padding: 50px 0;
+}
+
 .videoGamesContainer {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
     justify-content: space-evenly;
-    width: 60%;
-    background-color: lightgray;
 }
 
 .videoGameListing .videoGameImage {
     height: 200px;
     width: 100%;
     background-size: cover;
+    background-position: center;
 }
 
 .videoGamesContainer .videoGameListing {
