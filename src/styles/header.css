@@ -1,0 +1,53 @@
+.header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    position: relative;
+    background-color: lightcyan;
+    justify-content: center;
+}
+
+.innerHeader {
+    width: 1000px;
+    height: 100%;
+    background-color: lightcyan;
+    position: absolute;
+}
+
+.rightHeader {
+    margin-left: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.navigation {
+    float: right;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.navigation .navigationButtonLink {
+    text-decoration: none;
+    color: green;
+}
+
+.navigation .navigationButtonContainer {
+    margin: 0;
+    padding: 5px 15px;
+}
+
+.navigation .navigationButtonContainer h3 {
+
+}
+
+.search {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.searchForm {
+    padding: 0 30px;
+    margin-right: 80px;
+}

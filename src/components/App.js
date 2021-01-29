@@ -1,13 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import VideoGamesContainer from "./VideoGamesContainer";
+import Header from "./Header";
+import About from "./About";
 
 class App extends React.Component {
 
     render() {
         return(
             <div>
-                <VideoGamesContainer />
+                <BrowserRouter>
+                    <Header />
+                    <Switch>
+                        <Route exact path='/' component={VideoGamesContainer} />
+                        <Route exact path='/about' component={About} />
+                    </Switch>
+                </BrowserRouter>
             </div>
         )
     }
