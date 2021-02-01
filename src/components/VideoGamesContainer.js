@@ -5,9 +5,6 @@ import VideoGameListing from "./VideoGameListing";
 import "../styles/games.css"
 
 class VideoGamesContainer extends React.Component {
-    constructor(props) {
-        super(props);
-    }
 
     componentDidMount() {
         this.props.dispatch(getGames());

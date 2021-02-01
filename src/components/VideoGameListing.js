@@ -14,6 +14,10 @@ class VideoGameListing extends React.Component {
                 }}>
                 </div>
                 <span>{this.props.game.name}</span>
+                <br/>
+                <span>Platforms: {this.props.game.platforms.map((platformObject) => platformObject.platform.name).join(", ")}</span>
+                <br/>
+                <span>Metacritic score: {this.props.game.metacritic}</span>
             </div>
         )
     }

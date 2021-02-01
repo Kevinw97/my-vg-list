@@ -5,11 +5,8 @@ import { NavLink } from 'react-router-dom';
 import "../styles/header.css"
 
 class Header extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            searchValue: ""
-        }
+    state = {
+        searchValue: ""
     }
 
     searchOnChange = event => {

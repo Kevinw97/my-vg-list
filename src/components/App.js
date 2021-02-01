@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Home from "./Home";
 import Header from "./Header";
 import About from "./About";
+import VideoGamePage from "./VideoGamePage";
 import "../styles/app.css"
 
 class App extends React.Component {
@@ -15,7 +16,8 @@ class App extends React.Component {
                     <Header />
                     <Switch>
                         <Route exact path='/' component={Home} />
-                        <Route exact path='/about' component={About} />
+                        <Route path='/about' component={About} />
+                        <Route path= "/games/:game_id" component={VideoGamePage} />
                     </Switch>
                 </BrowserRouter>
             </div>
