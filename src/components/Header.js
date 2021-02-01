@@ -1,22 +1,31 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { getGames } from '../actions/games';
-import { NavLink } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import "../styles/header.css"
 
 class Header extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.searchSubmit = this.searchSubmit.bind(this);
+    }
+
     state = {
         searchValue: ""
     }
 
     searchOnChange = event => {
-        this.setState({searchValue: event.target.value});
+        this.setState({
+            searchValue: event.target.value
+        });
     }
 
     searchSubmit = event => {
         this.props.dispatch(getGames({ params: {
             search:this.state.searchValue
             }}));
+        this.props.history.push('/');
         event.preventDefault();
     }
 
@@ -59,4 +68,4 @@ const mapStateToProps = (state) => {
     return {};
 }
 
-export default connect(mapStateToProps)(Header);
+export default withRouter(connect(mapStateToProps)(Header));

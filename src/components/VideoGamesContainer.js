@@ -7,7 +7,9 @@ import "../styles/games.css"
 class VideoGamesContainer extends React.Component {
 
     componentDidMount() {
-        this.props.dispatch(getGames());
+        if (!this.props.games.isLoaded && !this.props.games.isLoading) {
+            this.props.dispatch(getGames());
+        }
     }
 
     render() {

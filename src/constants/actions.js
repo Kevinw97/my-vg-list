@@ -1,3 +1,7 @@
 export const GET_GAMES_BEGIN = "GET_GAMES_BEGIN";
 export const GET_GAMES_SUCCESS = "GET_GAMES_SUCCESS";
 export const GET_GAMES_ERROR = "GET_GAMES_ERROR";
+
+export const GET_GAME_BEGIN = "GET_GAME_BEGIN";
+export const GET_GAME_SUCCESS = "GET_GAME_SUCCESS";
+export const GET_GAME_ERROR = "GET_GAME_ERROR";

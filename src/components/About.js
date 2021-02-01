@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { getGames } from '../actions/games'
 
 class Header extends React.Component {
 
