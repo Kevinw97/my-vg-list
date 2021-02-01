@@ -8,7 +8,7 @@
 }
 
 .innerHeader {
-    width: 60%;
+    width: 1500px;
     height: 100%;
     background-color: lightcyan;
     position: absolute;
@@ -49,5 +49,5 @@
 
 .searchForm {
     padding: 0 30px;
-    margin-right: 80px;
+    margin-right: 10px;
 }

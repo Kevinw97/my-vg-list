@@ -5,13 +5,6 @@ import { getGames } from '../actions/games'
 class Header extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
-            searchValue: ""
-        }
-    }
-
-    componentDidMount() {
-        this.props.dispatch(getGames());
     }
 
     render() {
@@ -24,9 +17,7 @@ class Header extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return {
-        games: state.games
-    };
+    return {};
 }
 
 export default connect(mapStateToProps)(Header);
