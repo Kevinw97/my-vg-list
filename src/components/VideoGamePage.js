@@ -1,8 +1,12 @@
-import React from 'react';
-import { connect } from "react-redux";
-import { getGame } from "../actions/games";
+import React, {Component} from 'react';
+import {connect} from "react-redux";
+import {getGame} from "../actions/games";
 
-class VideoGamePage extends React.Component {
+const mapStateToProps = (state) => {
+    return {};
+}
+
+class VideoGamePage extends Component {
     state = {
         game: null
     }
@@ -23,10 +27,6 @@ class VideoGamePage extends React.Component {
             </div>
         )
     }
-}
-
-const mapStateToProps = (state) => {
-    return {};
 }
 
 export default connect(mapStateToProps)(VideoGamePage);

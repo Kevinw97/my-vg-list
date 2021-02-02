@@ -1,10 +1,17 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { getGames } from '../actions/games'
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {getGames} from '../actions/games'
 import VideoGamesContainer from "./VideoGamesContainer";
 import "../styles/games.css"
 
-class Home extends React.Component {
+const mapStateToProps = (state) => {
+    return {
+        previousPage: state.games.data.previous,
+        nextPage: state.games.data.next
+    };
+}
+
+class Home extends Component {
     constructor(props) {
         super(props);
         this.previousPage = this.previousPage.bind(this);
@@ -36,11 +43,6 @@ class Home extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        previousPage: state.games.data.previous,
-        nextPage: state.games.data.next
-    };
-}
+
 
 export default connect(mapStateToProps)(Home);

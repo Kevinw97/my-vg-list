@@ -1,8 +1,8 @@
-import React from 'react';
+import React, {Component} from 'react';
 import "../styles/games.css"
-import { NavLink } from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
-class VideoGameListing extends React.Component {
+class VideoGameListing extends Component {
     constructor(props) {
         super(props);
     }

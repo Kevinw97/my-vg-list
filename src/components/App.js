@@ -1,13 +1,17 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Home from "./Home";
 import Header from "./Header";
 import About from "./About";
 import VideoGamePage from "./VideoGamePage";
 import "../styles/app.css"
 
-class App extends React.Component {
+const mapStateToProps = (state) => {
+    return {};
+}
+
+class App extends Component {
 
     render() {
         return(
@@ -26,8 +30,6 @@ class App extends React.Component {
 
 }
 
-const mapStateToProps = (state) => {
-    return {};
-}
+
 
 export default connect(mapStateToProps)(App);

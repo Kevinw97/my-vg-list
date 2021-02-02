@@ -1,7 +1,11 @@
-import React from 'react';
-import { connect } from 'react-redux';
+import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
-class Header extends React.Component {
+const mapStateToProps = (state) => {
+    return {};
+}
+
+class Header extends Component {
 
     render() {
         return(
@@ -12,8 +16,6 @@ class Header extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {};
-}
+
 
 export default connect(mapStateToProps)(Header);
