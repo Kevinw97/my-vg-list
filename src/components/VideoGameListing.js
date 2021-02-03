@@ -3,9 +3,6 @@ import "../styles/games.css"
 import {NavLink} from "react-router-dom";
 
 class VideoGameListing extends Component {
-    constructor(props) {
-        super(props);
-    }
 
     render() {
         return(
