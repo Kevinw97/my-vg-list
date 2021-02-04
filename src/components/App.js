@@ -5,6 +5,7 @@ import Home from "./Home";
 import Header from "./Header";
 import About from "./About";
 import VideoGamePage from "./VideoGamePage";
+import Signup from "./Signup";
 import "../styles/app.css"
 
 const mapStateToProps = (state) => {
@@ -22,6 +23,7 @@ class App extends Component {
                         <Route exact path='/' component={Home} />
                         <Route path='/about' component={About} />
                         <Route path= "/games/:game_id" component={VideoGamePage} />
+                        <Route path='/signup' component={Signup} />
                     </Switch>
                 </BrowserRouter>
             </div>

@@ -2,12 +2,24 @@ import ReactDOM from "react-dom";
 import {Provider} from 'react-redux';
 import {store} from './store';
 import App from './components/App';
+import {ReactReduxFirebaseProvider} from "react-redux-firebase";
+import {createFirestoreInstance} from "redux-firestore";
+import firebase from './config/firebaseConfig';
 import "./styles/index.css";
+import "bootstrap/dist/css/bootstrap.min.css"
 
+const rrfProps = {
+    firebase,
+    config: {},
+    dispatch: store.dispatch,
+    createFirestoreInstance
+}
 
 const Index = () => (
     <Provider store = {store}>
-        <App />
+        <ReactReduxFirebaseProvider {...rrfProps}>
+            <App />
+        </ReactReduxFirebaseProvider>
     </Provider>
 );
 

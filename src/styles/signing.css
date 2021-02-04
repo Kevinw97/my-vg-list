@@ -1,0 +1,9 @@
+
+.signUpContainer {
+    min-height: 100vh;
+}
+
+.signUpContainer .signUpCard {
+    min-width: 15vw;
+    max-width: 100vw;
+}

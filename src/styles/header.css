@@ -1,6 +1,6 @@
 .header {
     width: 100%;
-    height: 80px;
+    height: 50px;
     display: flex;
     position: relative;
     background-color: lightcyan;
@@ -20,25 +20,18 @@
     justify-content: center;
 }
 
-.navigation {
-    float: right;
+.innerHeader .navigationButtonContainer {
     height: 100%;
     display: flex;
-    justify-content: center;
 }
 
-.navigation .navigationButtonLink {
+.innerHeader .navigationButtonContainer .navigationButtonLink:hover {
     text-decoration: none;
-    color: green;
+    background-color: cyan;
 }
 
-.navigation .navigationButtonContainer {
-    margin: 0;
-    padding: 5px 15px;
-}
-
-.navigation .navigationButtonContainer h3 {
-
+.innerHeader .navigationButtonContainer .navigationButtonLink {
+    padding: 10px 20px;
 }
 
 .search {

@@ -36,21 +36,24 @@ class Header extends Component {
     render() {
         return(
             <div className="header">
-                <div className="innerHeader">
-                    <div className="navigation">
+                <ul className="nav innerHeader">
+                    <li className="navigationButtonContainer">
                         <NavLink to="/" className="navigationButtonLink">
-                            <div className="navigationButtonContainer">
-                                <h3>Home</h3>
-                            </div>
+                            Home
                         </NavLink>
+                    </li>
+                    <li className="navigationButtonContainer">
                         <NavLink to="/about" className="navigationButtonLink">
-                            <div className="navigationButtonContainer">
-                                <h3>About</h3>
-                            </div>
+                            About
                         </NavLink>
-                    </div>
-                </div>
-                <div className="rightHeader">
+                    </li>
+                    <li className="navigationButtonContainer">
+                        <NavLink to="/signup" className="navigationButtonLink">
+                            Sign Up
+                        </NavLink>
+                    </li>
+                </ul>
+                <ul className="nav rightHeader">
                     <div className="search">
                         <div className="searchForm">
                             <form onSubmit={this.searchSubmit}>
@@ -62,7 +65,7 @@ class Header extends Component {
                             </form>
                         </div>
                     </div>
-                </div>
+                </ul>
             </div>
         )
     }

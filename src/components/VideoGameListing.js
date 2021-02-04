@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import "../styles/games.css"
 import {NavLink} from "react-router-dom";
+import _ from 'lodash';
 
 class VideoGameListing extends Component {
 
@@ -15,7 +16,11 @@ class VideoGameListing extends Component {
                 </NavLink>
                 <span>{this.props.game.name}</span>
                 <br/>
-                <span>Platforms: {this.props.game.platforms.map((platformObject) => platformObject.platform.name).join(", ")}</span>
+                <span>Platforms: {
+                    !_.isEmpty(this.props.game.platforms) ?
+                        this.props.game.platforms.map((platformObject) => platformObject.platform.name).join(", ") :
+                        <span>N/A</span>
+                }</span>
                 <br/>
                 <span>Metacritic score: {this.props.game.metacritic}</span>
             </div>

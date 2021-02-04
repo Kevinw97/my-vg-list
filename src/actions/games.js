@@ -11,7 +11,7 @@ export const getGames = (options = {
         search: ""
     },
     url: ""
-}) => (dispatch, getState) => {
+}) => (dispatch) => {
     return new Promise((resolve, reject) => {
         const Url = options.url || new URL("api/games", RAWG.BASE_URL);
         if (!options.url) {
@@ -40,7 +40,7 @@ export const getGames = (options = {
     });
 };
 
-export const getGame = (id) => (dispatch, getState) => {
+export const getGame = (id) => (dispatch) => {
     return new Promise((resolve, reject) => {
         const Url = new URL("api/games/" + id, RAWG.BASE_URL);
         Url.searchParams.append("key", process.env.REACT_APP_RAWG_API_KEY);
