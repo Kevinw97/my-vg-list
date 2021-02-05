@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getGames} from '../actions/games';
 import {NavLink, withRouter} from 'react-router-dom';
+import {signOut} from "../actions/auth";
 import "../styles/header.css"
 
 const mapStateToProps = (state) => {
@@ -13,10 +14,16 @@ class Header extends Component {
     constructor(props) {
         super(props);
         this.searchSubmit = this.searchSubmit.bind(this);
+        this.signOut = this.signOut.bind(this);
     }
 
     state = {
         searchValue: ""
+    }
+
+    signOut = event => {
+        event.preventDefault();
+        this.props.dispatch(signOut());
     }
 
     searchOnChange = event => {
@@ -51,6 +58,14 @@ class Header extends Component {
                         <NavLink to="/signup" className="navigationButtonLink">
                             Sign Up
                         </NavLink>
+                    </li>
+                    <li className="navigationButtonContainer">
+                        <NavLink to="/login" className="navigationButtonLink">
+                            Log In
+                        </NavLink>
+                    </li>
+                    <li className="navigationButtonContainer">
+                        <a className="navigationButtonLink" onClick={this.signOut}>Log Out</a>
                     </li>
                 </ul>
                 <ul className="nav rightHeader">
