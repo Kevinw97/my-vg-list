@@ -3,10 +3,13 @@ import {connect} from 'react-redux';
 import {getGames} from '../actions/games';
 import {NavLink, withRouter} from 'react-router-dom';
 import {signOut} from "../actions/auth";
+import {isLoaded} from "react-redux-firebase";
 import "../styles/header.css"
 
 const mapStateToProps = (state) => {
-    return {};
+    return {
+        auth: state.firebase.auth
+    };
 }
 
 class Header extends Component {
@@ -34,10 +37,34 @@ class Header extends Component {
 
     searchSubmit = event => {
         this.props.dispatch(getGames({ params: {
-            search:this.state.searchValue
+                search:this.state.searchValue
             }}));
         this.props.history.push('/');
         event.preventDefault();
+    }
+
+    linkButtons() {
+        if (isLoaded(this.props.auth)) {
+            if(this.props.auth.uid) {
+                return (
+                    <li className="navigationButtonContainer">
+                        <a href="/" className="navigationButtonLink" onClick={this.signOut}>Log Out</a>
+                    </li>);
+            } else {
+                return [
+                    <li className="navigationButtonContainer" key="signup">
+                        <NavLink to="/signup" className="navigationButtonLink">
+                            Sign Up
+                        </NavLink>
+                    </li>,
+                    <li className="navigationButtonContainer" key="signin">
+                        <NavLink to="/login" className="navigationButtonLink">
+                            Log In
+                        </NavLink>
+                    </li>
+                ]
+            }
+        }
     }
 
     render() {
@@ -54,19 +81,7 @@ class Header extends Component {
                             About
                         </NavLink>
                     </li>
-                    <li className="navigationButtonContainer">
-                        <NavLink to="/signup" className="navigationButtonLink">
-                            Sign Up
-                        </NavLink>
-                    </li>
-                    <li className="navigationButtonContainer">
-                        <NavLink to="/login" className="navigationButtonLink">
-                            Log In
-                        </NavLink>
-                    </li>
-                    <li className="navigationButtonContainer">
-                        <a className="navigationButtonLink" onClick={this.signOut}>Log Out</a>
-                    </li>
+                    {this.linkButtons()}
                 </ul>
                 <ul className="nav rightHeader">
                     <div className="search">

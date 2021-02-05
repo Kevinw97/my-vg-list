@@ -7,6 +7,10 @@ export const SIGNOUT_BEGIN = "SIGNOUT_BEGIN";
 export const SIGNOUT_SUCCESS = "SIGNOUT_SUCCESS";
 export const SIGNOUT_ERROR = "SIGNOUT_ERROR";
 
+export const SIGNUP_BEGIN = "SIGNUP_BEGIN";
+export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
+export const SIGNUP_ERROR = "SIGNUP_ERROR";
+
 
 // Games
 export const GET_GAMES_BEGIN = "GET_GAMES_BEGIN";

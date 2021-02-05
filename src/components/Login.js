@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Button, Card, Form, Container, Alert} from "react-bootstrap";
-import {NavLink} from "react-router-dom";
+import {NavLink, withRouter} from "react-router-dom";
 import {signIn} from "../actions/auth";
 import "../styles/signing.css";
 
@@ -29,7 +29,11 @@ class Login extends Component {
 
         const credentials = {email, password};
 
-        this.props.dispatch(signIn(credentials));
+        this.props.dispatch(signIn(credentials)).then(() => {
+            this.props.history.push('/');
+        }).catch(() => {
+            console.log("Login failed");
+        });
     }
 
     render() {
@@ -60,4 +64,4 @@ class Login extends Component {
     }
 }
 
-export default connect(mapStateToProps)(Login);
+export default withRouter(connect(mapStateToProps)(Login));
