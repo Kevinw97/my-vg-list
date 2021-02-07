@@ -10,7 +10,10 @@ import "bootstrap/dist/css/bootstrap.min.css"
 
 const rrfProps = {
     firebase,
-    config: {},
+    config: {
+        useFirestoreForProfile: true,
+        userProfile: "users",
+    },
     dispatch: store.dispatch,
     createFirestoreInstance
 }

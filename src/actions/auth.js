@@ -48,6 +48,8 @@ export const signUp = (newUserCredentials) => (dispatch, getState, {getFirebase,
         ).then((response) => {
             return firestore.collection('users').doc(response.user.uid).set({
                 username: newUserCredentials.username
+            }).catch((error) => {
+                console.log(error);
             });
         }).then(() => {
             dispatch({type: Actions.SIGNUP_SUCCESS});

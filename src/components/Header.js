@@ -1,10 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getGames} from '../actions/games';
+import {test} from "../actions/user";
 import {NavLink, withRouter} from 'react-router-dom';
 import {signOut} from "../actions/auth";
-import {isLoaded} from "react-redux-firebase";
+import {isLoaded, firestoreConnect} from "react-redux-firebase";
 import "../styles/header.css"
+import {compose} from "redux";
 
 const mapStateToProps = (state) => {
     return {
@@ -41,6 +43,12 @@ class Header extends Component {
             }}));
         this.props.history.push('/');
         event.preventDefault();
+    }
+
+    testFunction = event => {
+        event.preventDefault();
+
+        this.props.dispatch(test());
     }
 
     linkButtons() {
@@ -81,6 +89,9 @@ class Header extends Component {
                             About
                         </NavLink>
                     </li>
+                    <li className="navigationButtonContainer">
+                        <a href="/" className="navigationButtonLink" onClick={this.testFunction}>Test</a>
+                    </li>
                     {this.linkButtons()}
                 </ul>
                 <ul className="nav rightHeader">
@@ -101,4 +112,13 @@ class Header extends Component {
     }
 }
 
-export default withRouter(connect(mapStateToProps)(Header));
+export default withRouter(
+    compose(
+        connect(mapStateToProps),
+        firestoreConnect(props =>
+            [{
+                collection: "users",
+                doc: props.auth.uid
+            }]
+        ),
+    )(Header));
