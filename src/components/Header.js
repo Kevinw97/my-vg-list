@@ -85,6 +85,11 @@ class Header extends Component {
                         </NavLink>
                     </li>
                     <li className="navigationButtonContainer">
+                        <NavLink to="/mylist" className="navigationButtonLink">
+                            My List
+                        </NavLink>
+                    </li>
+                    <li className="navigationButtonContainer">
                         <NavLink to="/about" className="navigationButtonLink">
                             About
                         </NavLink>

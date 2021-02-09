@@ -7,10 +7,13 @@ import About from "./About";
 import VideoGamePage from "./VideoGamePage";
 import Signup from "./Signup";
 import Login from "./Login";
+import UserVideoGameListing from "./UserVideoGameListing";
 import "../styles/app.css"
 
 const mapStateToProps = (state) => {
-    return {};
+    return {
+        auth: state.firebase.auth
+    };
 }
 
 class App extends Component {
@@ -22,6 +25,7 @@ class App extends Component {
                     <Header />
                     <Switch>
                         <Route exact path='/' component={Home} />
+                        <Route path='/mylist' component={UserVideoGameListing} />
                         <Route path='/about' component={About} />
                         <Route path= "/games/:game_id" component={VideoGamePage} />
                         <Route path='/signup' component={Signup} />
@@ -36,5 +40,5 @@ class App extends Component {
 
 
 export default connect(
-    mapStateToProps
+    mapStateToProps,
 )(App);

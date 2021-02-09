@@ -20,3 +20,8 @@ export const GET_GAMES_ERROR = "GET_GAMES_ERROR";
 export const GET_GAME_BEGIN = "GET_GAME_BEGIN";
 export const GET_GAME_SUCCESS = "GET_GAME_SUCCESS";
 export const GET_GAME_ERROR = "GET_GAME_ERROR";
+
+// Users
+export const ADD_GAME_BEGIN = "ADD_GAME_BEGIN";
+export const ADD_GAME_SUCCESS = "ADD_GAME_SUCCESS";
+export const ADD_GAME_ERROR = "ADD_GAME_ERROR";

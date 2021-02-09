@@ -3,12 +3,51 @@ import {connect} from 'react-redux';
 import "../styles/games.css"
 import {NavLink} from "react-router-dom";
 import _ from 'lodash';
+import {Button} from "react-bootstrap";
+import {addGame} from "../actions/user";
+import {isLoaded, firestoreConnect} from "react-redux-firebase";
+import {compose} from "redux";
 
 const mapStateToProps = (state) => {
-    return {};
+    return {
+        auth: state.firebase.auth,
+        myGames: state.firestore.data.myGames
+    };
 }
 
 class VideoGameListing extends Component {
+
+    constructor(props) {
+        super(props);
+        this.addGameToUserList = this.addGameToUserList.bind(this);
+        this.shouldDisableButton = this.shouldDisableButton.bind(this);
+    }
+
+    addGameToUserList(event) {
+        event.preventDefault();
+
+        console.log("pressed");
+        const currentGame = this.props.game;
+        const gameObject = {
+            id: currentGame.id,
+            name: currentGame.name,
+            status: null,
+            playtime: 0,
+            rating: null,
+            favorite: false
+        }
+
+        this.props.dispatch(addGame(gameObject));
+    }
+
+    shouldDisableButton() {
+        if (this.props.myGames) {
+            const gameId = this.props.game.id;
+
+            return this.props.myGames[gameId];
+        }
+        return true;
+    }
 
     render() {
         return(
@@ -19,7 +58,7 @@ class VideoGameListing extends Component {
                     }}>
                     </div>
                 </NavLink>
-                <span>{this.props.game.name}</span>
+                <Button onClick={this.addGameToUserList} disabled={this.shouldDisableButton()}>+</Button><span> {this.props.game.name}</span>
                 <br/>
                 <span>Platforms: {
                     !_.isEmpty(this.props.game.platforms) ?
@@ -33,6 +72,20 @@ class VideoGameListing extends Component {
     }
 }
 
-export default connect(
-    mapStateToProps
+export default compose(
+    connect(mapStateToProps),
+    firestoreConnect(props => {
+        if (isLoaded(props.auth)) {
+            return [{
+                collection: "data",
+                doc: props.auth.uid,
+                subcollections: [{
+                    collection: 'games'
+                }],
+                storeAs: "myGames",
+                orderBy: ["name"]
+            }]
+        }
+        return [];
+    })
 )(VideoGameListing);
