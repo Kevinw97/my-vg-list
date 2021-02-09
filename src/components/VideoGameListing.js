@@ -46,7 +46,7 @@ class VideoGameListing extends Component {
 
             return this.props.myGames[gameId];
         }
-        return true;
+        return false;
     }
 
     render() {
