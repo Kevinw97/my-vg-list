@@ -120,10 +120,14 @@ class Header extends Component {
 export default withRouter(
     compose(
         connect(mapStateToProps),
-        firestoreConnect(props =>
-            [{
-                collection: "users",
-                doc: props.auth.uid
-            }]
+        firestoreConnect(props => {
+                if (isLoaded(props.auth) && props.auth.uid) {
+                    return [{
+                        collection: "users",
+                        doc: props.auth.uid
+                    }]
+                }
+                return []
+            }
         ),
     )(Header));

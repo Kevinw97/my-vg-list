@@ -75,7 +75,7 @@ class VideoGameListing extends Component {
 export default compose(
     connect(mapStateToProps),
     firestoreConnect(props => {
-        if (isLoaded(props.auth)) {
+        if (isLoaded(props.auth) && props.auth.uid) {
             return [{
                 collection: "data",
                 doc: props.auth.uid,
