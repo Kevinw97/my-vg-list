@@ -29,4 +29,6 @@ class VideoGamePage extends Component {
     }
 }
 
-export default connect(mapStateToProps)(VideoGamePage);
+export default connect(
+    mapStateToProps
+)(VideoGamePage);

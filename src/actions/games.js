@@ -33,9 +33,10 @@ export const getGames = (options = {
                 },
                 (error) => {
                     dispatch({
-                        type: Actions.GET_GAMES_ERROR
+                        type: Actions.GET_GAMES_ERROR,
+                        error: error
                     });
-                    reject();
+                    reject(error);
                 });
     });
 };
@@ -57,9 +58,10 @@ export const getGame = (id) => (dispatch) => {
                 },
                 (error) => {
                     dispatch({
-                        type: Actions.GET_GAME_ERROR
+                        type: Actions.GET_GAME_ERROR,
+                        error: error
                     });
-                    reject();
+                    reject(error);
                 });
     });
 }

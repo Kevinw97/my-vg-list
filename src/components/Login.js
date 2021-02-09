@@ -64,4 +64,7 @@ class Login extends Component {
     }
 }
 
-export default withRouter(connect(mapStateToProps)(Login));
+export default withRouter(
+    connect(
+        mapStateToProps
+    )(Login));

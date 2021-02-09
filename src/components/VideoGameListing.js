@@ -1,7 +1,12 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import "../styles/games.css"
 import {NavLink} from "react-router-dom";
 import _ from 'lodash';
+
+const mapStateToProps = (state) => {
+    return {};
+}
 
 class VideoGameListing extends Component {
 
@@ -28,4 +33,6 @@ class VideoGameListing extends Component {
     }
 }
 
-export default VideoGameListing;
+export default connect(
+    mapStateToProps
+)(VideoGameListing);

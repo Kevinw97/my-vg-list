@@ -18,4 +18,6 @@ class Header extends Component {
 
 
 
-export default connect(mapStateToProps)(Header);
+export default connect(
+    mapStateToProps
+)(Header);

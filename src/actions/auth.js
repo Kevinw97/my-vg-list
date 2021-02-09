@@ -1,5 +1,9 @@
 import * as Actions from "../constants/actions"
 
+/*
+Firebase/firestore authentication related action creators
+ */
+
 export const signIn = (credentials) => (dispatch, getState, {getFirebase, getFirestore}) => {
     return new Promise((resolve, reject) => {
         dispatch({type: Actions.LOGIN_BEGIN});
@@ -30,7 +34,7 @@ export const signOut = () => (dispatch, getState, {getFirebase, getFirestore}) =
             resolve();
         }).catch((error) => {
             dispatch({type: Actions.SIGNOUT_ERROR, error});
-            reject();
+            reject(error);
         });
     });
 }
@@ -60,7 +64,7 @@ export const signUp = (newUserCredentials) => (dispatch, getState, {getFirebase,
             resolve();
         }).catch((error) => {
             dispatch({type: Actions.SIGNUP_ERROR, error});
-            reject();
+            reject(error);
         });
     });
 }

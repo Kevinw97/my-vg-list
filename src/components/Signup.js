@@ -32,8 +32,8 @@ class Signup extends Component {
 
         this.props.dispatch(signUp(newUserCredentials)).then(() => {
             this.props.history.push('/');
-        }).catch(() => {
-            console.log("Sign up failed");
+        }).catch((error) => {
+            console.log(error);
         });
     }
 
