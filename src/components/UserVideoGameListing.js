@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {firestoreConnect, isLoaded} from "react-redux-firebase";
 import {compose} from "redux";
-import _ from "lodash"
 
 function mapStateToProps(state) {
     return {
@@ -32,19 +30,5 @@ class UserVideoGameListing extends Component {
 }
 
 export default compose(
-    connect(mapStateToProps),
-    firestoreConnect(props => {
-        if (isLoaded(props.auth) && props.auth.uid) {
-            return [{
-                collection: "data",
-                doc: props.auth.uid,
-                subcollections: [{
-                    collection: 'games'
-                }],
-                storeAs: "myGames",
-                orderBy: ["name"]
-            }]
-        }
-        return [];
-    })
+    connect(mapStateToProps)
 )(UserVideoGameListing);

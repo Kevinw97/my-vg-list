@@ -4,7 +4,7 @@ import {getGames} from '../actions/games';
 import {test} from "../actions/user";
 import {NavLink, withRouter} from 'react-router-dom';
 import {signOut} from "../actions/auth";
-import {isLoaded, firestoreConnect} from "react-redux-firebase";
+import {isLoaded} from "react-redux-firebase";
 import "../styles/header.css"
 import {compose} from "redux";
 
@@ -53,9 +53,9 @@ class Header extends Component {
 
     linkButtons() {
         if (isLoaded(this.props.auth)) {
-            if(this.props.auth.uid) {
+            if (this.props.auth.uid) {
                 return (
-                    <li className="navigationButtonContainer">
+                    <li className="navigationButtonContainer" key="signout">
                         <a href="/" className="navigationButtonLink" onClick={this.signOut}>Log Out</a>
                     </li>);
             } else {
@@ -75,25 +75,48 @@ class Header extends Component {
         }
     }
 
-    render() {
-        return(
-            <div className="header">
-                <ul className="nav innerHeader">
-                    <li className="navigationButtonContainer">
+    headerButtons() {
+        if (isLoaded(this.props.auth)) {
+            if (this.props.auth.uid) {
+                return[
+                    <li className="navigationButtonContainer" key="home">
                         <NavLink to="/" className="navigationButtonLink">
                             Home
                         </NavLink>
-                    </li>
-                    <li className="navigationButtonContainer">
+                    </li>,
+                    <li className="navigationButtonContainer" key="mylist">
                         <NavLink to="/mylist" className="navigationButtonLink">
                             My List
                         </NavLink>
-                    </li>
-                    <li className="navigationButtonContainer">
+                    </li>,
+                    <li className="navigationButtonContainer" key="about">
                         <NavLink to="/about" className="navigationButtonLink">
                             About
                         </NavLink>
                     </li>
+                ];
+            } else {
+                return[
+                    <li className="navigationButtonContainer" key="home">
+                        <NavLink to="/" className="navigationButtonLink">
+                            Home
+                        </NavLink>
+                    </li>,
+                    <li className="navigationButtonContainer" key="about">
+                        <NavLink to="/about" className="navigationButtonLink">
+                            About
+                        </NavLink>
+                    </li>
+                ];
+            }
+        }
+    }
+
+    render() {
+        return(
+            <div className="header">
+                <ul className="nav innerHeader">
+                    {this.headerButtons()}
                     <li className="navigationButtonContainer">
                         <a href="/" className="navigationButtonLink" onClick={this.testFunction}>Test</a>
                     </li>
@@ -119,15 +142,5 @@ class Header extends Component {
 
 export default withRouter(
     compose(
-        connect(mapStateToProps),
-        firestoreConnect(props => {
-                if (isLoaded(props.auth) && props.auth.uid) {
-                    return [{
-                        collection: "users",
-                        doc: props.auth.uid
-                    }]
-                }
-                return []
-            }
-        ),
+        connect(mapStateToProps)
     )(Header));

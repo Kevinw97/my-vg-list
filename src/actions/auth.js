@@ -1,4 +1,5 @@
-import * as Actions from "../constants/actions"
+import * as Actions from "../constants/actions";
+import {actionTypes as RFSActions} from "redux-firestore";
 
 /*
 Firebase/firestore authentication related action creators
@@ -31,6 +32,7 @@ export const signOut = () => (dispatch, getState, {getFirebase, getFirestore}) =
 
         firebase.auth().signOut().then(() => {
             dispatch({type: Actions.SIGNOUT_SUCCESS});
+            dispatch({type: RFSActions.CLEAR_DATA});
             resolve();
         }).catch((error) => {
             dispatch({type: Actions.SIGNOUT_ERROR, error});

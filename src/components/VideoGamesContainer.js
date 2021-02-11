@@ -41,8 +41,6 @@ class VideoGamesContainer extends Component {
     }
 }
 
-
-
 export default connect(
     mapStateToProps
 )(VideoGamesContainer);

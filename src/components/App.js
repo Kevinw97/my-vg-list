@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {compose} from "redux";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
 import Home from "./Home";
 import Header from "./Header";
@@ -9,6 +10,7 @@ import Signup from "./Signup";
 import Login from "./Login";
 import UserVideoGameListing from "./UserVideoGameListing";
 import "../styles/app.css"
+import {firestoreConnect, isLoaded} from "react-redux-firebase";
 
 const mapStateToProps = (state) => {
     return {
@@ -37,8 +39,25 @@ class App extends Component {
     }
 }
 
-
-
-export default connect(
-    mapStateToProps,
+export default compose(
+    connect(mapStateToProps),
+    firestoreConnect(props => {
+            if (isLoaded(props.auth) && props.auth.uid) {
+                return [{
+                    collection: "users",
+                    doc: props.auth.uid,
+                    storeAs: "user"
+                }, {
+                    collection: "data",
+                    doc: props.auth.uid,
+                    subcollections: [{
+                        collection: 'games'
+                    }],
+                    storeAs: "myGames",
+                    orderBy: ["name"]
+                }]
+            }
+            return []
+        }
+    )
 )(App);

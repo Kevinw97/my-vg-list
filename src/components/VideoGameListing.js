@@ -5,7 +5,6 @@ import {NavLink} from "react-router-dom";
 import _ from 'lodash';
 import {Button} from "react-bootstrap";
 import {addGame} from "../actions/user";
-import {isLoaded, firestoreConnect} from "react-redux-firebase";
 import {compose} from "redux";
 
 const mapStateToProps = (state) => {
@@ -46,7 +45,8 @@ class VideoGameListing extends Component {
 
             return this.props.myGames[gameId];
         }
-        return false;
+
+        return !this.props.auth.uid;
     }
 
     render() {
@@ -73,19 +73,5 @@ class VideoGameListing extends Component {
 }
 
 export default compose(
-    connect(mapStateToProps),
-    firestoreConnect(props => {
-        if (isLoaded(props.auth) && props.auth.uid) {
-            return [{
-                collection: "data",
-                doc: props.auth.uid,
-                subcollections: [{
-                    collection: 'games'
-                }],
-                storeAs: "myGames",
-                orderBy: ["name"]
-            }]
-        }
-        return [];
-    })
+    connect(mapStateToProps)
 )(VideoGameListing);
