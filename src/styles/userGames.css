@@ -1,0 +1,25 @@
+
+.userVideoGamesContainer {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.userVideoGamesContainer .userVideoGameListing {
+    display: flex;
+}
+
+.userVideoGameListing .userVideoGameListingName {
+    width: 40%;
+    margin-left: 10px;
+    vertical-align: middle;
+    display: flex;
+    align-items: center;
+}
+
+.userVideoGameListing .videoGameImage {
+    height: 100px;
+    width: 100px;
+    background-size: cover;
+    background-position: center;
+}

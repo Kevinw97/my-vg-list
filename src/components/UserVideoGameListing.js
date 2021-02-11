@@ -1,34 +1,30 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {compose} from "redux";
+import "../styles/userGames.css";
+import {NavLink} from "react-router-dom";
 
 function mapStateToProps(state) {
-    return {
-        auth: state.firebase.auth,
-        myGames: state.firestore.data.myGames
-    };
+    return {};
 }
 
 class UserVideoGameListing extends Component {
     render() {
         return (
-            <div>
-                {(this.props.myGames) ?
-                    Object.keys(this.props.myGames).map(gameKey => {
-                        const game = this.props.myGames[gameKey];
-                        return (
-                            <div key={game.id}>
-                                <span>{game.name}</span>
-                            </div>
-                        )
-                    }):
-                    <span>Loading...</span>
-                }
+            <div className="userVideoGameListing">
+                <NavLink to={"/games/" + this.props.game.id}>
+                    <div className="videoGameImage" style={{
+                        backgroundImage: `url(${this.props.game.background_image})`
+                    }}>
+                    </div>
+                </NavLink>
+                <div className="userVideoGameListingName">
+                    <span>{this.props.game.name}</span>
+                </div>
             </div>
         );
     }
 }
 
-export default compose(
-    connect(mapStateToProps)
+export default connect(
+    mapStateToProps,
 )(UserVideoGameListing);

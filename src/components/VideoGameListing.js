@@ -25,15 +25,15 @@ class VideoGameListing extends Component {
     addGameToUserList(event) {
         event.preventDefault();
 
-        console.log("pressed");
         const currentGame = this.props.game;
         const gameObject = {
             id: currentGame.id,
             name: currentGame.name,
+            background_image: currentGame.background_image,
             status: null,
             playtime: 0,
             rating: null,
-            favorite: false
+            favorite: false,
         }
 
         this.props.dispatch(addGame(gameObject));
