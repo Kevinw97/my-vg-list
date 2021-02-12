@@ -8,7 +8,7 @@ import About from "./About";
 import VideoGamePage from "./VideoGamePage";
 import Signup from "./Signup";
 import Login from "./Login";
-import UserVideoGameListing from "./UserVideoGamesContainer";
+import UserVideoGameListing from "./UserVideoGamesTable";
 import "../styles/app.css"
 import {firestoreConnect, isLoaded} from "react-redux-firebase";
 

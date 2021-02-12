@@ -1,25 +1,30 @@
 
-.userVideoGamesContainer {
+.userVideoGamesTableContainer {
     display: flex;
     flex-direction: column;
     width: 50%;
 }
 
-.userVideoGamesContainer .userVideoGameListing {
-    display: flex;
-}
-
-.userVideoGameListing .userVideoGameListingName {
-    width: 40%;
-    margin-left: 10px;
-    vertical-align: middle;
-    display: flex;
-    align-items: center;
-}
-
-.userVideoGameListing .videoGameImage {
+.userVideoGamesTableContainer .userVideoGamesTableRowBody {
     height: 100px;
-    width: 100px;
-    background-size: cover;
-    background-position: center;
+}
+
+.userVideoGamesTableContainer .userVideoGamesTableRowBody .userVideoGamesTableData {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.userVideoGamesTableContainer .userVideoGamesTableDataHeader {
+    text-align: center;
+    vertical-align: middle;
+}
+
+.userVideoGamesTableContainer .userVideoGamesTableImageContainer {
+    height: 70px;
+}
+
+.userVideoGamesTableContainer .userVideoGameTableImage {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
 }
