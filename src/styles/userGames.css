@@ -1,10 +1,4 @@
 
-.userVideoGamesTableContainer {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-}
-
 .userVideoGamesTableContainer .userVideoGamesTableRowBody {
     height: 100px;
 }

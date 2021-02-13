@@ -19,6 +19,28 @@ export const userReducer = (state = initialState, action) => {
                 ...state,
                 error: action.error.message
             };
+        case Actions.UPDATE_GAMES_BEGIN:
+            return state;
+        case Actions.UPDATE_GAMES_SUCCESS:
+            return {
+                ...state,
+                dirtyGames: {}
+            };
+        case Actions.UPDATE_GAMES_ERROR:
+            return {
+                error: action.error.message
+            };
+        case Actions.DELETE_GAME_BEGIN:
+            return state;
+        case Actions.DELETE_GAME_SUCCESS:
+            const nextState = {...state};
+            delete nextState.dirtyGames[action.payload];
+            return nextState;
+        case Actions.DELETE_GAME_ERROR:
+            return {
+                ...state,
+                error: action.error.message
+            };
         case Actions.ADD_DIRTY_GAME:
             return {
                 ...state,
@@ -30,6 +52,12 @@ export const userReducer = (state = initialState, action) => {
                     }
                 }
             }
+        case Actions.CLEAR_DIRTY_GAMES: {
+            return {
+                ...state,
+                dirtyGames: {}
+            }
+        }
         default:
             return state;
     }

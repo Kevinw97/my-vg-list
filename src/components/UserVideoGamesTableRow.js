@@ -1,10 +1,14 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {NavLink} from "react-router-dom";
-import {addDirtyGame} from "../actions/user";
+import {addDirtyGame, removeGame} from "../actions/user";
+import {IconButton} from "@material-ui/core";
+import {Delete} from "@material-ui/icons"
 
-function mapStateToProps(state) {
-    return {};
+function mapStateToProps(state, ownProps) {
+    return {
+        dirtyData: state.user.dirtyGames[ownProps.game.id]
+    };
 }
 
 class UserVideoGamesTableRow extends Component {
@@ -17,6 +21,7 @@ class UserVideoGamesTableRow extends Component {
         this.onPlaytimeChange = this.onPlaytimeChange.bind(this);
         this.onRatingChange = this.onRatingChange.bind(this);
         this.onStatusChange = this.onStatusChange.bind(this);
+        this.onDelete = this.onDelete.bind(this);
     }
 
     onPlaytimeChange(event) {
@@ -67,6 +72,11 @@ class UserVideoGamesTableRow extends Component {
         }));
     }
 
+    onDelete(event) {
+        console.log("onDelete");
+        this.props.dispatch(removeGame(this.state.game.id));
+    }
+
     render() {
         const game = this.state.game;
         return (
@@ -97,6 +107,11 @@ class UserVideoGamesTableRow extends Component {
                         <option value="playing">Playing</option>
                         <option value="complete">Completed</option>
                     </select>
+                </td>
+                <td className="userVideoGamesTableData">
+                    <IconButton className="userVideoGamesTableRowButton" onClick={this.onDelete}>
+                        <Delete/>
+                    </IconButton>
                 </td>
             </tr>
             </tbody>)

@@ -10,7 +10,8 @@ class Header extends Component {
     render() {
         return(
             <div className="about pageContainer">
-                <p>About</p>
+                <span>All game data is from the RAWG.io API</span>
+                <span>App created using React, Redux, and Firebase and Firestore</span>
             </div>
         )
     }

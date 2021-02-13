@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getGames} from '../actions/games';
-import {test} from "../actions/user";
 import {NavLink, withRouter} from 'react-router-dom';
 import {signOut} from "../actions/auth";
 import {isLoaded} from "react-redux-firebase";
