@@ -30,9 +30,9 @@ class VideoGameListing extends Component {
             id: currentGame.id,
             name: currentGame.name,
             background_image: currentGame.background_image,
-            status: null,
+            status: "",
             playtime: 0,
-            rating: null,
+            rating: 0,
             favorite: false,
         }
 

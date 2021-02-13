@@ -1,7 +1,8 @@
 import * as Actions from '../constants/actions';
 
 const initialState = {
-    error: null
+    error: null,
+    dirtyGames: {}
 };
 
 export const userReducer = (state = initialState, action) => {
@@ -18,6 +19,17 @@ export const userReducer = (state = initialState, action) => {
                 ...state,
                 error: action.error.message
             };
+        case Actions.ADD_DIRTY_GAME:
+            return {
+                ...state,
+                dirtyGames: {
+                    ...state.dirtyGames,
+                    [action.payload.id]: {
+                        ...state.dirtyGames[action.payload.id],
+                        ...action.payload.changes
+                    }
+                }
+            }
         default:
             return state;
     }

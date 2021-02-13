@@ -45,13 +45,7 @@ class Header extends Component {
         event.preventDefault();
     }
 
-    testFunction = event => {
-        event.preventDefault();
-
-        this.props.dispatch(test());
-    }
-
-    linkButtons() {
+    authButtons() {
         if (isLoaded(this.props.auth)) {
             if (this.props.auth.uid) {
                 return (
@@ -117,10 +111,7 @@ class Header extends Component {
             <div className="header">
                 <ul className="nav innerHeader">
                     {this.headerButtons()}
-                    <li className="navigationButtonContainer">
-                        <a href="/" className="navigationButtonLink" onClick={this.testFunction}>Test</a>
-                    </li>
-                    {this.linkButtons()}
+                    {this.authButtons()}
                 </ul>
                 <ul className="nav rightHeader">
                     <div className="search">

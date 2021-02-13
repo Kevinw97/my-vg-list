@@ -23,9 +23,9 @@ export const addGame = (game) => (dispatch, getState, {getFirebase, getFirestore
     });
 }
 
-export const test = (newUserCredentials) => (dispatch, getState, {getFirebase, getFirestore}) => {
-    return new Promise((resolve, reject) => {
-
-        console.log("ran!");
-    });
+export const addDirtyGame = (game) => {
+    return {
+        type: Actions.ADD_DIRTY_GAME,
+        payload: game
+    }
 }

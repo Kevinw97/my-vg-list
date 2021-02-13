@@ -25,3 +25,5 @@ export const GET_GAME_ERROR = "GET_GAME_ERROR";
 export const ADD_GAME_BEGIN = "ADD_GAME_BEGIN";
 export const ADD_GAME_SUCCESS = "ADD_GAME_SUCCESS";
 export const ADD_GAME_ERROR = "ADD_GAME_ERROR";
+
+export const ADD_DIRTY_GAME = "ADD_DIRTY_GAME";
