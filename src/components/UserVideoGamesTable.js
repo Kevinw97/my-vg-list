@@ -40,6 +40,7 @@ class UserVideoGamesTable extends Component {
                             <th className="userVideoGamesTableDataHeader">Play Time (hours)</th>
                             <th className="userVideoGamesTableDataHeader">Personal Rating</th>
                             <th className="userVideoGamesTableDataHeader">Play Status</th>
+                            <th className="userVideoGamesTableDataHeader">Platform</th>
                             <th className="userVideoGamesTableDataHeader"></th>
                         </tr>
                         </tbody>

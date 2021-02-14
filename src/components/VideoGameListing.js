@@ -30,6 +30,8 @@ class VideoGameListing extends Component {
             id: currentGame.id,
             name: currentGame.name,
             background_image: currentGame.background_image,
+            available_platforms: currentGame.platforms,
+            selected_platform: "",
             status: "",
             playtime: 0,
             rating: 0,

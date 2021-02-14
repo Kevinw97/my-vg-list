@@ -8,6 +8,14 @@
     vertical-align: middle;
 }
 
+.userVideoGamesTableContainer .userVideoGamesTableRowBody .userVideoGamesTableData .userVideoGamesTableInput{
+    width: 60px;
+}
+
+.userVideoGamesTableContainer .userVideoGamesTableRowBody .userVideoGamesTableData .userVideoGamesTableSelect{
+    width: 160px;
+}
+
 .userVideoGamesTableContainer .userVideoGamesTableDataHeader {
     text-align: center;
     vertical-align: middle;

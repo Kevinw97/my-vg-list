@@ -21,6 +21,7 @@ class UserVideoGamesTableRow extends Component {
         this.onPlaytimeChange = this.onPlaytimeChange.bind(this);
         this.onRatingChange = this.onRatingChange.bind(this);
         this.onStatusChange = this.onStatusChange.bind(this);
+        this.onPlatformChange = this.onPlatformChange.bind(this);
         this.onDelete = this.onDelete.bind(this);
     }
 
@@ -72,10 +73,28 @@ class UserVideoGamesTableRow extends Component {
         }));
     }
 
+    onPlatformChange(event) {
+        console.log("onPlatformChange");
+        this.setState({
+            game: {
+                ...this.state.game,
+                selected_platform: event.target.value
+            }
+        });
+        this.props.dispatch(addDirtyGame({
+            id: this.state.game.id,
+            changes: {
+                selected_platform: event.target.value
+            }
+        }));
+    }
+
     onDelete(event) {
         console.log("onDelete");
         this.props.dispatch(removeGame(this.state.game.id));
     }
+
+
 
     render() {
         const game = this.state.game;
@@ -95,17 +114,27 @@ class UserVideoGamesTableRow extends Component {
                     </NavLink>
                 </td>
                 <td className="userVideoGamesTableData">
-                    <input type="number" id="playtime-quantity" min="0" step="0.1" value={game.playtime} onChange={this.onPlaytimeChange}></input>
+                    <input type="number" id="playtime-quantity" min="0" step="0.1" value={game.playtime} onChange={this.onPlaytimeChange} className="userVideoGamesTableInput"></input>
                 </td>
                 <td className="userVideoGamesTableData">
-                    <input type="number" id="rating-quantity" min="0" max="10" step="0.5" value={game.rating} onChange={this.onRatingChange}></input>
+                    <input type="number" id="rating-quantity" min="0" max="10" step="0.5" value={game.rating} onChange={this.onRatingChange} className="userVideoGamesTableInput"></input>
                 </td>
                 <td className="userVideoGamesTableData">
-                    <select value={game.status} onChange={this.onStatusChange}>
+                    <select value={game.status} onChange={this.onStatusChange} className="userVideoGamesTableSelect">
                         <option value=""></option>
                         <option value="backlog">Backlog</option>
                         <option value="playing">Playing</option>
                         <option value="complete">Completed</option>
+                    </select>
+                </td>
+                <td className="userVideoGamesTableData">
+                    <select value={game.selected_platform} onChange={this.onPlatformChange} className="userVideoGamesTableSelect">
+                        {
+                            game.available_platforms && game.available_platforms.map(platformObject => {
+                                const platform = platformObject.platform;
+                                return <option value={platform.id} key={platform.id}>{platform.name}</option>
+                            })
+                        }
                     </select>
                 </td>
                 <td className="userVideoGamesTableData">
