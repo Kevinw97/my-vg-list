@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {compose} from "redux";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
+import {firestoreConnect, isLoaded} from "react-redux-firebase";
 import Home from "./Home";
 import Header from "./Header";
 import About from "./About";
@@ -10,7 +11,7 @@ import Signup from "./Signup";
 import Login from "./Login";
 import UserVideoGameListing from "./UserVideoGamesTable";
 import "../styles/app.css"
-import {firestoreConnect, isLoaded} from "react-redux-firebase";
+
 
 const mapStateToProps = (state) => {
     return {

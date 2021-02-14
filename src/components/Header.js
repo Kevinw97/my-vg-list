@@ -4,8 +4,8 @@ import {getGames} from '../actions/games';
 import {NavLink, withRouter} from 'react-router-dom';
 import {signOut} from "../actions/auth";
 import {isLoaded} from "react-redux-firebase";
-import "../styles/header.css"
 import {compose} from "redux";
+import "../styles/header.css"
 
 const mapStateToProps = (state) => {
     return {

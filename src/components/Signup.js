@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Button, Card, Form, Container, Alert} from "react-bootstrap";
-import "../styles/signing.css";
 import {NavLink, withRouter} from "react-router-dom";
 import {signUp} from "../actions/auth";
+import "../styles/signing.css";
 
 function mapStateToProps(state) {
     return {

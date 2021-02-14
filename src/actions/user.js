@@ -4,11 +4,7 @@ import * as Actions from "../constants/actions"
 Action creators for updating user data and information
  */
 
-/***
- *
- * @param game - Game object to be added to firestore collection
- * @returns {function(*, *, {getFirebase: *, getFirestore: *}): Promise<unknown>}
- */
+// Game: game object to be added to firestore (added as is)
 export const addGame = (game) => (dispatch, getState, {getFirebase, getFirestore}) => {
     return new Promise((resolve, reject) => {
         dispatch({type: Actions.ADD_GAME_BEGIN});
@@ -27,13 +23,10 @@ export const addGame = (game) => (dispatch, getState, {getFirebase, getFirestore
     });
 }
 
-/***
- * dirtyGames structure:
- * {
- *     gameKey: (object with fields and datas that changed)
- * }
- * @returns {function(*=, *, {getFirebase: *, getFirestore: *}): Promise<unknown>}
- */
+//  dirtyGames structure:
+//  {
+//      gameKey: (object with fields and datas that changed)
+//   }
 export const updateGames = () => (dispatch, getState, {getFirebase, getFirestore}) => {
     return new Promise((resolve, reject) => {
         dispatch({type: Actions.UPDATE_GAMES_BEGIN});
@@ -59,6 +52,7 @@ export const updateGames = () => (dispatch, getState, {getFirebase, getFirestore
     });
 }
 
+// Removes game with gameId from currently logged in user
 export const removeGame = (gameId) => (dispatch, getState, {getFirebase, getFirestore}) => {
     return new Promise((resolve, reject) => {
         dispatch({type: Actions.DELETE_GAME_BEGIN});

@@ -1,13 +1,12 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux';
 import {compose} from "redux";
-import "../styles/userGames.css";
-import UserVideoGameTableRow from "./UserVideoGamesTableRow";
 import {Redirect} from 'react-router-dom';
 import {Button} from "react-bootstrap";
 import {isLoaded} from "react-redux-firebase";
 import {clearDirtyGames, updateGames} from "../actions/user";
-
+import UserVideoGameTableRow from "./UserVideoGamesTableRow";
+import "../styles/userGames.css";
 
 function mapStateToProps(state) {
     return {

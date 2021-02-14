@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import "../styles/games.css"
 import {NavLink} from "react-router-dom";
-import _ from 'lodash';
 import {Button} from "react-bootstrap";
 import {addGame} from "../actions/user";
 import {compose} from "redux";
+import _ from 'lodash';
+import "../styles/games.css"
 
 const mapStateToProps = (state) => {
     return {

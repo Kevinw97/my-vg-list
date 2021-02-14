@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getGames} from '../actions/games'
 import VideoGameListing from "./VideoGameListing";
-import "../styles/games.css";
 import _ from "lodash"
+import "../styles/games.css";
 
 const mapStateToProps = (state) => {
     return {
