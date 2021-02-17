@@ -131,9 +131,9 @@ class UserVideoGamesTable extends Component {
         console.log("sortByPlatform");
         const sortedGames = this.state.myGames.sort((game1, game2) => {
             if (this.state.platformAscending) {
-                return game1.selected_platform < game2.selected_platform ? -1 : 1;
+                return game1.selected_platform < game2.selected_platform ? 1 : -1;
             } else {
-                return game2.selected_platform < game1.selected_platform ? -1 : 1;
+                return game2.selected_platform < game1.selected_platform ? 1 : -1;
             }
         });
         this.setState({
