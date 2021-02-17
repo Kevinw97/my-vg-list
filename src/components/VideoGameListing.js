@@ -26,12 +26,13 @@ class VideoGameListing extends Component {
         event.preventDefault();
 
         const currentGame = this.props.game;
+        const selectedPlatform = !_.isEmpty(currentGame.platforms) ? currentGame.platforms[0].platform.id : "";
         const gameObject = {
             id: currentGame.id,
             name: currentGame.name,
             background_image: currentGame.background_image,
             available_platforms: currentGame.platforms,
-            selected_platform: "",
+            selected_platform: selectedPlatform,
             status: "",
             playtime: 0,
             rating: 0,
