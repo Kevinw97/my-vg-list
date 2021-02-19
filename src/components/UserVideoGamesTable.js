@@ -74,12 +74,10 @@ class UserVideoGamesTable extends Component {
     }
 
     updateGames() {
-        console.log("updateGames");
         this.props.dispatch(updateGames());
     }
 
     sortByName(event) {
-        console.log("sortByName");
         this.setSortedHeader("name");
         const sortedGames = this.state.myGames.sort((game1, game2) => {
             if (this.state.nameAscending) {
@@ -96,7 +94,6 @@ class UserVideoGamesTable extends Component {
     }
 
     sortByPlayTime(event) {
-        console.log("sortByPlayTime");
         this.setSortedHeader("playtime");
         const sortedGames = this.state.myGames.sort((game1, game2) => {
             if (this.state.playTimeAscending) {
@@ -113,7 +110,6 @@ class UserVideoGamesTable extends Component {
     }
 
     sortByRating(event) {
-        console.log("sortByRating");
         this.setSortedHeader("rating");
         const sortedGames = this.state.myGames.sort((game1, game2) => {
             if (this.state.ratingAscending) {
@@ -130,7 +126,6 @@ class UserVideoGamesTable extends Component {
     }
 
     sortByStatus(event) {
-        console.log("sortByStatus");
         this.setSortedHeader("status");
         const sortedGames = this.state.myGames.sort((game1, game2) => {
             if (this.state.statusAscending) {
@@ -147,7 +142,6 @@ class UserVideoGamesTable extends Component {
     }
 
     sortByPlatform(event) {
-        console.log("sortByPlatform");
         this.setSortedHeader("platform");
         const sortedGames = this.state.myGames.sort((game1, game2) => {
             if (this.state.platformAscending) {

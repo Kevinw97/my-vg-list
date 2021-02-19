@@ -26,7 +26,6 @@ class UserVideoGamesTableRow extends Component {
     }
 
     onPlaytimeChange(event) {
-        console.log("onPlaytimeChange");
         this.setState({
             game: {
                 ...this.state.game,
@@ -42,7 +41,6 @@ class UserVideoGamesTableRow extends Component {
     }
 
     onRatingChange(event) {
-        console.log("onRatingChange");
         this.setState({
             game: {
                 ...this.state.game,
@@ -58,7 +56,6 @@ class UserVideoGamesTableRow extends Component {
     }
 
     onStatusChange(event) {
-        console.log("onStatusChange");
         this.setState({
             game: {
                 ...this.state.game,
@@ -74,7 +71,6 @@ class UserVideoGamesTableRow extends Component {
     }
 
     onPlatformChange(event) {
-        console.log("onPlatformChange");
         this.setState({
             game: {
                 ...this.state.game,
@@ -90,7 +86,6 @@ class UserVideoGamesTableRow extends Component {
     }
 
     onDelete(event) {
-        console.log("onDelete");
         this.props.dispatch(removeGame(this.state.game.id));
     }
 

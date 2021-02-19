@@ -31,8 +31,8 @@ class Login extends Component {
 
         this.props.dispatch(signIn(credentials)).then(() => {
             this.props.history.push('/');
-        }).catch(() => {
-            console.log("Login failed");
+        }).catch((error) => {
+            console.log(error);
         });
     }
 
