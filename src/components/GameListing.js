@@ -14,7 +14,7 @@ const mapStateToProps = (state) => {
     };
 }
 
-class VideoGameListing extends Component {
+class GameListing extends Component {
 
     constructor(props) {
         super(props);
@@ -54,9 +54,9 @@ class VideoGameListing extends Component {
 
     render() {
         return(
-            <div className="videoGameListing">
+            <div className="game-listing">
                 <NavLink to={"/games/" + this.props.game.id}>
-                    <div className="videoGameImage" style={{
+                    <div className="game-image" style={{
                         backgroundImage: `url(${this.props.game.background_image})`
                     }}>
                     </div>
@@ -77,4 +77,4 @@ class VideoGameListing extends Component {
 
 export default compose(
     connect(mapStateToProps)
-)(VideoGameListing);
+)(GameListing);

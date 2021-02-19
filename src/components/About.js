@@ -9,7 +9,7 @@ class Header extends Component {
 
     render() {
         return(
-            <div className="about pageContainer">
+            <div className="about page-container">
                 <span>All game data is from the RAWG.io API</span>
                 <span>App created using React, Redux, and Firebase and Firestore</span>
             </div>

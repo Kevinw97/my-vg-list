@@ -38,8 +38,8 @@ class Login extends Component {
 
     render() {
         return (
-            <Container className="d-flex flex-column align-items-center justify-content-center signUpContainer">
-                <Card className="signUpCard">
+            <Container className="d-flex flex-column align-items-center justify-content-center sign-up-container">
+                <Card className="sign-up-card">
                     <Card.Body>
                         <h2 className="text-center mb-4">Log In</h2>
                         {this.props.error && <Alert variant="danger">{this.props.error}</Alert>}

@@ -7,7 +7,7 @@ const mapStateToProps = (state) => {
     return {};
 }
 
-class VideoGamePage extends Component {
+class GamePage extends Component {
     state = {
         game: null
     }
@@ -23,8 +23,8 @@ class VideoGamePage extends Component {
 
     render() {
         return (
-            <div className="pageContainer">
-                <div className="vgp-description">
+            <div className="page-container">
+                <div className="game-page-description">
                     <h4>About</h4>
                     {this.state.game ? ReactHtmlParser(this.state.game.description) : <p>"Loading..."</p>}
                 </div>
@@ -35,4 +35,4 @@ class VideoGamePage extends Component {
 
 export default connect(
     mapStateToProps
-)(VideoGamePage);
+)(GamePage);

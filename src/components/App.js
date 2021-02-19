@@ -6,10 +6,10 @@ import {firestoreConnect, isLoaded} from "react-redux-firebase";
 import Home from "./Home";
 import Header from "./Header";
 import About from "./About";
-import VideoGamePage from "./VideoGamePage";
+import GamePage from "./GamePage";
 import Signup from "./Signup";
 import Login from "./Login";
-import UserVideoGameListing from "./UserVideoGamesTable";
+import UserGameListing from "./UserGamesTable";
 import "../styles/app.css"
 
 
@@ -28,9 +28,9 @@ class App extends Component {
                     <Header />
                     <Switch>
                         <Route exact path='/' component={Home} />
-                        <Route path='/mylist' component={UserVideoGameListing} />
+                        <Route path='/mylist' component={UserGameListing} />
                         <Route path='/about' component={About} />
-                        <Route path= "/games/:game_id" component={VideoGamePage} />
+                        <Route path= "/games/:game_id" component={GamePage} />
                         <Route path='/signup' component={Signup} />
                         <Route path='/login' component={Login} />
                     </Switch>

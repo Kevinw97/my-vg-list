@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getGames} from '../actions/games'
-import VideoGameListing from "./VideoGameListing";
+import GameListing from "./GameListing";
 import _ from "lodash"
 import "../styles/games.css";
 
@@ -11,7 +11,7 @@ const mapStateToProps = (state) => {
     };
 }
 
-class VideoGamesContainer extends Component {
+class GamesContainer extends Component {
 
     componentDidMount() {
         if (_.isEmpty(this.props.games.data)) {
@@ -19,13 +19,13 @@ class VideoGamesContainer extends Component {
         }
     }
 
-    videoGameListing() {
+    renderGameListing() {
         if (this.props.games.isLoading) {
             return (<p>Loading...</p>);
         }
         if (!_.isEmpty(this.props.games.data.results)) {
             return this.props.games.data.results.map(game => (
-                <VideoGameListing key={game.id} game={game}/>
+                <GameListing key={game.id} game={game}/>
             ));
         } else {
             return (<p>No results</p>);
@@ -34,8 +34,8 @@ class VideoGamesContainer extends Component {
 
     render() {
         return(
-            <div className="videoGamesContainer">
-                {this.videoGameListing()}
+            <div className="games-container">
+                {this.renderGameListing()}
             </div>
         )
     }
@@ -43,4 +43,4 @@ class VideoGamesContainer extends Component {
 
 export default connect(
     mapStateToProps
-)(VideoGamesContainer);
+)(GamesContainer);

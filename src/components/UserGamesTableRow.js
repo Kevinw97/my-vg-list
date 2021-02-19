@@ -11,7 +11,7 @@ function mapStateToProps(state, ownProps) {
     };
 }
 
-class UserVideoGamesTableRow extends Component {
+class UserGamesTableRow extends Component {
     state = {
         game: this.props.game
     }
@@ -94,36 +94,36 @@ class UserVideoGamesTableRow extends Component {
     render() {
         const game = this.state.game;
         return (
-            <tbody className="userVideoGamesTableRowBody">
+            <tbody className="user-games-table-row-body">
             <tr>
                 <td>
-                    <div className="userVideoGamesTableImageContainer">
+                    <div className="user-games-table-image-container">
                         <NavLink to={"/games/" + game.id}>
-                            <img src={game.background_image} className="userVideoGameTableImage" alt=""></img>
+                            <img src={game.background_image} className="user-game-table-image" alt=""></img>
                         </NavLink>
                     </div>
                 </td>
-                <td className="userVideoGamesTableName">
+                <td className="user-games-table-name">
                     <NavLink to={"/games/" + game.id}>
                         {game.name}
                     </NavLink>
                 </td>
-                <td className="userVideoGamesTableData">
-                    <input type="number" id="playtime-quantity" min="0" step="0.1" value={game.playtime} onChange={this.onPlaytimeChange} className="userVideoGamesTableInput"></input>
+                <td className="user-games-table-data">
+                    <input type="number" id="playtime-quantity" min="0" step="0.1" value={game.playtime} onChange={this.onPlaytimeChange} className="user-games-table-input"></input>
                 </td>
-                <td className="userVideoGamesTableData">
-                    <input type="number" id="rating-quantity" min="0" max="10" step="0.5" value={game.rating} onChange={this.onRatingChange} className="userVideoGamesTableInput"></input>
+                <td className="user-games-table-data">
+                    <input type="number" id="rating-quantity" min="0" max="10" step="0.5" value={game.rating} onChange={this.onRatingChange} className="user-games-table-input"></input>
                 </td>
-                <td className="userVideoGamesTableData">
-                    <select value={game.status} onChange={this.onStatusChange} className="userVideoGamesTableSelect">
+                <td className="user-games-table-data">
+                    <select value={game.status} onChange={this.onStatusChange} className="user-games-table-select">
                         <option value=""></option>
                         <option value="backlog">Backlog</option>
                         <option value="playing">Playing</option>
                         <option value="complete">Completed</option>
                     </select>
                 </td>
-                <td className="userVideoGamesTableData">
-                    <select value={game.selected_platform} onChange={this.onPlatformChange} className="userVideoGamesTableSelect">
+                <td className="user-games-table-data">
+                    <select value={game.selected_platform} onChange={this.onPlatformChange} className="user-games-table-select">
                         {
                             game.available_platforms && game.available_platforms.map(platformObject => {
                                 const platform = platformObject.platform;
@@ -132,8 +132,8 @@ class UserVideoGamesTableRow extends Component {
                         }
                     </select>
                 </td>
-                <td className="userVideoGamesTableData">
-                    <IconButton className="userVideoGamesTableRowButton" onClick={this.onDelete}>
+                <td className="user-games-table-data">
+                    <IconButton className="user-games-table-row-button" onClick={this.onDelete}>
                         <Delete/>
                     </IconButton>
                 </td>
@@ -144,4 +144,4 @@ class UserVideoGamesTableRow extends Component {
 
 export default connect(
     mapStateToProps,
-)(UserVideoGamesTableRow);
+)(UserGamesTableRow);

@@ -5,7 +5,7 @@ import {Redirect} from 'react-router-dom';
 import {Button} from "react-bootstrap";
 import {isLoaded} from "react-redux-firebase";
 import {clearDirtyGames, updateGames} from "../actions/user";
-import UserVideoGameTableRow from "./UserVideoGamesTableRow";
+import UserGamesTableRow from "./UserGamesTableRow";
 import _ from "lodash";
 import "../styles/userGames.css";
 import {ArrowDropDown, ArrowDropUp} from "@material-ui/icons";
@@ -17,7 +17,7 @@ function mapStateToProps(state) {
     };
 }
 
-class UserVideoGamesTable extends Component {
+class UserGamesTable extends Component {
     state = {
         myGames: [],
         nameAscending: true,
@@ -172,55 +172,55 @@ class UserVideoGamesTable extends Component {
         if (!_.isEmpty(this.state.myGames)) {
             return (
                 <Fragment>
-                    <table className="userVideoGamesTable">
-                        <tbody className="userVideoGamesTableHeader">
+                    <table className="user-games-table">
+                        <tbody className="user-games-table-header">
                         <tr>
                             <th>Image</th>
                             <th onClick={this.sortByName} ref={this.nameRef}>
-                                <div className="userVideoGamesTableHeaderName">Name</div>
+                                <div className="user-games-table-header-name">Name</div>
                                 {this.nameRef.current &&
                                 this.nameRef.current.classList.contains("sorted-header") &&
                                 (this.state.nameAscending ?
                                     <ArrowDropUp/> :
                                     <ArrowDropDown/>)}
                             </th>
-                            <th onClick={this.sortByPlayTime} className="userVideoGamesTableDataHeader" ref={this.playTimeRef}>
-                                <div className="userVideoGamesTableHeaderName">Play Time (hours)</div>
+                            <th onClick={this.sortByPlayTime} className="user-games-table-data-header" ref={this.playTimeRef}>
+                                <div className="user-games-table-header-name">Play Time (hours)</div>
                                 {this.playTimeRef.current &&
                                 this.playTimeRef.current.classList.contains("sorted-header") &&
                                 (this.state.playTimeAscending ?
                                     <ArrowDropUp/> :
                                     <ArrowDropDown/>)}
                             </th>
-                            <th onClick={this.sortByRating} className="userVideoGamesTableDataHeader" ref={this.ratingRef}>
-                                <div className="userVideoGamesTableHeaderName">Personal Rating</div>
+                            <th onClick={this.sortByRating} className="user-games-table-data-header" ref={this.ratingRef}>
+                                <div className="user-games-table-header-name">Personal Rating</div>
                                 {this.ratingRef.current &&
                                 this.ratingRef.current.classList.contains("sorted-header") &&
                                 (this.state.ratingAscending ?
                                     <ArrowDropUp/> :
                                     <ArrowDropDown/>)}
                             </th>
-                            <th onClick={this.sortByStatus} className="userVideoGamesTableDataHeader" ref={this.statusRef}>
-                                <div className="userVideoGamesTableHeaderName">Play Status</div>
+                            <th onClick={this.sortByStatus} className="user-games-table-data-header" ref={this.statusRef}>
+                                <div className="user-games-table-header-name">Play Status</div>
                                 {this.statusRef.current &&
                                 this.statusRef.current.classList.contains("sorted-header") &&
                                 (this.state.statusAscending ?
                                     <ArrowDropUp/> :
                                     <ArrowDropDown/>)}
                             </th>
-                            <th onClick={this.sortByPlatform} className="userVideoGamesTableDataHeader" ref={this.platformRef}>
-                                <div className="userVideoGamesTableHeaderName">Platform</div>
+                            <th onClick={this.sortByPlatform} className="user-games-table-data-header" ref={this.platformRef}>
+                                <div className="user-games-table-header-name">Platform</div>
                                 {this.platformRef.current &&
                                 this.platformRef.current.classList.contains("sorted-header") &&
                                 (this.state.platformAscending ?
                                     <ArrowDropUp/> :
                                     <ArrowDropDown/>)}
                             </th>
-                            <th className="userVideoGamesTableDataHeader"></th>
+                            <th className="user-games-table-data-header"></th>
                         </tr>
                         </tbody>
                         {this.state.myGames.map(game => {
-                            return game && <UserVideoGameTableRow key={game.id} game={game}/>
+                            return game && <UserGamesTableRow key={game.id} game={game}/>
                         })}
                     </table>
                     <Button onClick={this.updateGames}>
@@ -230,7 +230,7 @@ class UserVideoGamesTable extends Component {
             )
         } else {
             return (
-                <div className="userVideoGamesTableEmpty">
+                <div className="user-games-table-empty">
                     <span>No games to load</span>
                 </div>
             )
@@ -246,7 +246,7 @@ class UserVideoGamesTable extends Component {
             return <Redirect to="/login"/>
         }
         return (
-            <div className="userVideoGamesTableContainer pageContainer">
+            <div className="user-games-table-container page-container">
                 {this.renderGamesTable()}
             </div>
         );
@@ -255,4 +255,4 @@ class UserVideoGamesTable extends Component {
 
 export default compose(
     connect(mapStateToProps)
-)(UserVideoGamesTable);
+)(UserGamesTable);

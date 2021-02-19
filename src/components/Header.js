@@ -48,18 +48,18 @@ class Header extends Component {
         if (isLoaded(this.props.auth)) {
             if (this.props.auth.uid) {
                 return (
-                    <li className="navigationButtonContainer" key="signout">
-                        <a href="/" className="navigationButtonLink" onClick={this.signOut}>Log Out</a>
+                    <li className="navigation-button-container" key="signout">
+                        <a href="/" className="navigation-button-link" onClick={this.signOut}>Log Out</a>
                     </li>);
             } else {
                 return [
-                    <li className="navigationButtonContainer" key="signup">
-                        <NavLink to="/signup" className="navigationButtonLink">
+                    <li className="navigation-button-container" key="signup">
+                        <NavLink to="/signup" className="navigation-button-link">
                             Sign Up
                         </NavLink>
                     </li>,
-                    <li className="navigationButtonContainer" key="signin">
-                        <NavLink to="/login" className="navigationButtonLink">
+                    <li className="navigation-button-container" key="signin">
+                        <NavLink to="/login" className="navigation-button-link">
                             Log In
                         </NavLink>
                     </li>
@@ -72,31 +72,31 @@ class Header extends Component {
         if (isLoaded(this.props.auth)) {
             if (this.props.auth.uid) {
                 return[
-                    <li className="navigationButtonContainer" key="home">
-                        <NavLink to="/" className="navigationButtonLink">
+                    <li className="navigation-button-container" key="home">
+                        <NavLink to="/" className="navigation-button-link">
                             Home
                         </NavLink>
                     </li>,
-                    <li className="navigationButtonContainer" key="mylist">
-                        <NavLink to="/mylist" className="navigationButtonLink">
+                    <li className="navigation-button-container" key="mylist">
+                        <NavLink to="/mylist" className="navigation-button-link">
                             My List
                         </NavLink>
                     </li>,
-                    <li className="navigationButtonContainer" key="about">
-                        <NavLink to="/about" className="navigationButtonLink">
+                    <li className="navigation-button-container" key="about">
+                        <NavLink to="/about" className="navigation-button-link">
                             About
                         </NavLink>
                     </li>
                 ];
             } else {
                 return[
-                    <li className="navigationButtonContainer" key="home">
-                        <NavLink to="/" className="navigationButtonLink">
+                    <li className="navigation-button-container" key="home">
+                        <NavLink to="/" className="navigation-button-link">
                             Home
                         </NavLink>
                     </li>,
-                    <li className="navigationButtonContainer" key="about">
-                        <NavLink to="/about" className="navigationButtonLink">
+                    <li className="navigation-button-container" key="about">
+                        <NavLink to="/about" className="navigation-button-link">
                             About
                         </NavLink>
                     </li>
@@ -108,13 +108,13 @@ class Header extends Component {
     render() {
         return(
             <div className="header">
-                <ul className="nav innerHeader">
+                <ul className="nav inner-header">
                     {this.headerButtons()}
                     {this.authButtons()}
                 </ul>
-                <ul className="nav rightHeader">
+                <ul className="nav right-header">
                     <div className="search">
-                        <div className="searchForm">
+                        <div className="search-form">
                             <form onSubmit={this.searchSubmit}>
                                 <input
                                     type="text"

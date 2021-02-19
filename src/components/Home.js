@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getGames} from '../actions/games'
-import VideoGamesContainer from "./VideoGamesContainer";
+import GamesContainer from "./GamesContainer";
 import "../styles/games.css"
 
 const mapStateToProps = (state) => {
@@ -32,9 +32,9 @@ class Home extends Component {
 
     render() {
         return(
-            <div className="home pageContainer">
-                <VideoGamesContainer />
-                <div className="pageNavigation">
+            <div className="home page-container">
+                <GamesContainer />
+                <div className="page-navigation">
                     <button disabled={!this.props.previousPage} onClick={this.previousPage}>Previous</button>
                     <button disabled={!this.props.nextPage} onClick={this.nextPage}>Next</button>
                 </div>
