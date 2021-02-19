@@ -21,6 +21,10 @@
     vertical-align: middle;
 }
 
+.userVideoGamesTableContainer .userVideoGamesTableHeaderName {
+    display: inline-block;
+}
+
 .userVideoGamesTableContainer .userVideoGamesTableImageContainer {
     height: 70px;
 }

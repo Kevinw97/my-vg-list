@@ -8,6 +8,7 @@ import {clearDirtyGames, updateGames} from "../actions/user";
 import UserVideoGameTableRow from "./UserVideoGamesTableRow";
 import _ from "lodash";
 import "../styles/userGames.css";
+import {ArrowDropDown, ArrowDropUp} from "@material-ui/icons";
 
 function mapStateToProps(state) {
     return {
@@ -34,6 +35,20 @@ class UserVideoGamesTable extends Component {
         this.sortByRating = this.sortByRating.bind(this);
         this.sortByStatus = this.sortByStatus.bind(this);
         this.sortByPlatform = this.sortByPlatform.bind(this);
+
+        this.nameRef = React.createRef();
+        this.playTimeRef = React.createRef();
+        this.ratingRef = React.createRef();
+        this.statusRef = React.createRef();
+        this.platformRef = React.createRef();
+
+        this.headerMapping = {
+            name: this.nameRef,
+            playtime: this.playTimeRef,
+            rating: this.ratingRef,
+            status: this.statusRef,
+            platform: this.platformRef
+        };
     }
 
     componentDidMount() {
@@ -65,11 +80,12 @@ class UserVideoGamesTable extends Component {
 
     sortByName(event) {
         console.log("sortByName");
+        this.setSortedHeader("name");
         const sortedGames = this.state.myGames.sort((game1, game2) => {
             if (this.state.nameAscending) {
-                return game1.name < game2.name ? -1 : 1;
+                return game1.name < game2.name ? 1 : -1;
             } else {
-                return game2.name < game1.name ? -1 : 1;
+                return game2.name < game1.name ? 1 : -1;
             }
         });
         this.setState({
@@ -81,6 +97,7 @@ class UserVideoGamesTable extends Component {
 
     sortByPlayTime(event) {
         console.log("sortByPlayTime");
+        this.setSortedHeader("playtime");
         const sortedGames = this.state.myGames.sort((game1, game2) => {
             if (this.state.playTimeAscending) {
                 return game1.playtime < game2.playtime ? 1 : -1;
@@ -97,6 +114,7 @@ class UserVideoGamesTable extends Component {
 
     sortByRating(event) {
         console.log("sortByRating");
+        this.setSortedHeader("rating");
         const sortedGames = this.state.myGames.sort((game1, game2) => {
             if (this.state.ratingAscending) {
                 return game1.rating < game2.rating ? 1 : -1;
@@ -113,11 +131,12 @@ class UserVideoGamesTable extends Component {
 
     sortByStatus(event) {
         console.log("sortByStatus");
+        this.setSortedHeader("status");
         const sortedGames = this.state.myGames.sort((game1, game2) => {
             if (this.state.statusAscending) {
-                return game1.status < game2.status ? -1 : 1;
+                return game1.status < game2.status ? 1 : -1;
             } else {
-                return game2.status < game1.status ? -1 : 1;
+                return game2.status < game1.status ? 1 : -1;
             }
         });
         this.setState({
@@ -129,17 +148,29 @@ class UserVideoGamesTable extends Component {
 
     sortByPlatform(event) {
         console.log("sortByPlatform");
+        this.setSortedHeader("platform");
         const sortedGames = this.state.myGames.sort((game1, game2) => {
             if (this.state.platformAscending) {
-                return game1.selected_platform < game2.selected_platform ? 1 : -1;
+                return game1.selected_platform < game2.selected_platform ? -1 : 1;
             } else {
-                return game2.selected_platform < game1.selected_platform ? 1 : -1;
+                return game2.selected_platform < game1.selected_platform ? -1 : 1;
             }
         });
         this.setState({
             ...this.state,
             myGames: sortedGames,
             platformAscending : !this.state.platformAscending
+        });
+    }
+
+    setSortedHeader(name) {
+        Object.keys(this.headerMapping).forEach(headerName => {
+            const headerRef = this.headerMapping[headerName].current;
+            if (name === headerName) {
+                headerRef.classList.add("sorted-header");
+            } else {
+                headerRef.classList.remove("sorted-header");
+            }
         });
     }
 
@@ -151,11 +182,46 @@ class UserVideoGamesTable extends Component {
                         <tbody className="userVideoGamesTableHeader">
                         <tr>
                             <th>Image</th>
-                            <th><div onClick={this.sortByName}>Name</div></th>
-                            <th className="userVideoGamesTableDataHeader"><div onClick={this.sortByPlayTime}>Play Time (hours)</div></th>
-                            <th className="userVideoGamesTableDataHeader"><div onClick={this.sortByRating}>Personal Rating</div></th>
-                            <th className="userVideoGamesTableDataHeader"><div onClick={this.sortByStatus}>Play Status</div></th>
-                            <th className="userVideoGamesTableDataHeader"><div onClick={this.sortByPlatform}>Platform</div></th>
+                            <th onClick={this.sortByName} ref={this.nameRef}>
+                                <div className="userVideoGamesTableHeaderName">Name</div>
+                                {this.nameRef.current &&
+                                this.nameRef.current.classList.contains("sorted-header") &&
+                                (this.state.nameAscending ?
+                                    <ArrowDropUp/> :
+                                    <ArrowDropDown/>)}
+                            </th>
+                            <th onClick={this.sortByPlayTime} className="userVideoGamesTableDataHeader" ref={this.playTimeRef}>
+                                <div className="userVideoGamesTableHeaderName">Play Time (hours)</div>
+                                {this.playTimeRef.current &&
+                                this.playTimeRef.current.classList.contains("sorted-header") &&
+                                (this.state.playTimeAscending ?
+                                    <ArrowDropUp/> :
+                                    <ArrowDropDown/>)}
+                            </th>
+                            <th onClick={this.sortByRating} className="userVideoGamesTableDataHeader" ref={this.ratingRef}>
+                                <div className="userVideoGamesTableHeaderName">Personal Rating</div>
+                                {this.ratingRef.current &&
+                                this.ratingRef.current.classList.contains("sorted-header") &&
+                                (this.state.ratingAscending ?
+                                    <ArrowDropUp/> :
+                                    <ArrowDropDown/>)}
+                            </th>
+                            <th onClick={this.sortByStatus} className="userVideoGamesTableDataHeader" ref={this.statusRef}>
+                                <div className="userVideoGamesTableHeaderName">Play Status</div>
+                                {this.statusRef.current &&
+                                this.statusRef.current.classList.contains("sorted-header") &&
+                                (this.state.statusAscending ?
+                                    <ArrowDropUp/> :
+                                    <ArrowDropDown/>)}
+                            </th>
+                            <th onClick={this.sortByPlatform} className="userVideoGamesTableDataHeader" ref={this.platformRef}>
+                                <div className="userVideoGamesTableHeaderName">Platform</div>
+                                {this.platformRef.current &&
+                                this.platformRef.current.classList.contains("sorted-header") &&
+                                (this.state.platformAscending ?
+                                    <ArrowDropUp/> :
+                                    <ArrowDropDown/>)}
+                            </th>
                             <th className="userVideoGamesTableDataHeader"></th>
                         </tr>
                         </tbody>
