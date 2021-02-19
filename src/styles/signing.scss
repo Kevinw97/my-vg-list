@@ -1,8 +1,8 @@
 .sign-up-container {
     min-height: 100vh;
-}
 
-.sign-up-container .sign-up-card {
-    min-width: 15vw;
-    max-width: 100vw;
+    .sign-up-card {
+        min-width: 15vw;
+        max-width: 100vw;
+    }
 }
