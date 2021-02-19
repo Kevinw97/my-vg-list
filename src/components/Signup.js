@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Button, Card, Form, Container, Alert} from "react-bootstrap";
 import {NavLink, withRouter} from "react-router-dom";
 import {signUp} from "../actions/auth";
-import "../styles/signing.css";
+import "../styles/signing.scss";
 
 function mapStateToProps(state) {
     return {

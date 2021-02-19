@@ -1,0 +1,37 @@
+.user-games-table-container {
+
+  .user-games-table-header {
+
+    .user-games-table-title-header {
+      display: inline-block;
+    }
+
+    .user-games-table-data-header {
+      text-align: center;
+      vertical-align: middle;
+    }
+  }
+
+  .user-games-table-row-body {
+    height: 100px;
+
+    .user-games-table-image {
+      width: 70px;
+      height: 70px;
+      object-fit: cover;
+    }
+
+    .user-games-table-data {
+      text-align: center;
+      vertical-align: middle;
+
+      .user-games-table-input {
+        width: 60px;
+      }
+
+      .user-games-table-select {
+        width: 160px;
+      }
+    }
+  }
+}

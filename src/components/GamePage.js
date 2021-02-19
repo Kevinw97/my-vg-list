@@ -23,7 +23,7 @@ class GamePage extends Component {
 
     render() {
         return (
-            <div className="page-container">
+            <div className="page-container game-page-container">
                 <div className="game-page-description">
                     <h4>About</h4>
                     {this.state.game ? ReactHtmlParser(this.state.game.description) : <p>"Loading..."</p>}

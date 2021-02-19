@@ -1,0 +1,46 @@
+.header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    position: relative;
+    background-color: lightcyan;
+    justify-content: center;
+
+    .inner-header {
+        width: 60vw;
+        height: 100%;
+        background-color: lightcyan;
+        position: absolute;
+    }
+
+    .right-header {
+        margin-left: auto;
+        display: flex;
+        justify-content: center;
+
+        .search {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            .search-form {
+                padding: 0 30px;
+                margin-right: 10px;
+            }
+        }
+    }
+
+    .navigation-button-container {
+        height: 100%;
+        display: flex;
+
+        .navigation-button-link {
+            padding: 10px 20px;
+        }
+
+        .navigation-button-link:hover {
+            text-decoration: none;
+            background-color: cyan;
+        }
+    }
+}

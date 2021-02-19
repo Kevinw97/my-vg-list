@@ -5,7 +5,7 @@ import {Button} from "react-bootstrap";
 import {addGame} from "../actions/user";
 import {compose} from "redux";
 import _ from 'lodash';
-import "../styles/games.css"
+import "../styles/games.scss"
 
 const mapStateToProps = (state) => {
     return {

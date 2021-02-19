@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {getGames} from '../actions/games'
 import GameListing from "./GameListing";
 import _ from "lodash"
-import "../styles/games.css";
+import "../styles/games.scss";
 
 const mapStateToProps = (state) => {
     return {

@@ -7,7 +7,7 @@ import {isLoaded} from "react-redux-firebase";
 import {clearDirtyGames, updateGames} from "../actions/user";
 import UserGamesTableRow from "./UserGamesTableRow";
 import _ from "lodash";
-import "../styles/userGames.css";
+import "../styles/userGames.scss";
 import {ArrowDropDown, ArrowDropUp} from "@material-ui/icons";
 
 function mapStateToProps(state) {
@@ -177,7 +177,7 @@ class UserGamesTable extends Component {
                         <tr>
                             <th>Image</th>
                             <th onClick={this.sortByName} ref={this.nameRef}>
-                                <div className="user-games-table-header-name">Name</div>
+                                <div className="user-games-table-title-header">Name</div>
                                 {this.nameRef.current &&
                                 this.nameRef.current.classList.contains("sorted-header") &&
                                 (this.state.nameAscending ?
@@ -185,7 +185,7 @@ class UserGamesTable extends Component {
                                     <ArrowDropDown/>)}
                             </th>
                             <th onClick={this.sortByPlayTime} className="user-games-table-data-header" ref={this.playTimeRef}>
-                                <div className="user-games-table-header-name">Play Time (hours)</div>
+                                <div className="user-games-table-title-header">Play Time (hours)</div>
                                 {this.playTimeRef.current &&
                                 this.playTimeRef.current.classList.contains("sorted-header") &&
                                 (this.state.playTimeAscending ?
@@ -193,7 +193,7 @@ class UserGamesTable extends Component {
                                     <ArrowDropDown/>)}
                             </th>
                             <th onClick={this.sortByRating} className="user-games-table-data-header" ref={this.ratingRef}>
-                                <div className="user-games-table-header-name">Personal Rating</div>
+                                <div className="user-games-table-title-header-name">Personal Rating</div>
                                 {this.ratingRef.current &&
                                 this.ratingRef.current.classList.contains("sorted-header") &&
                                 (this.state.ratingAscending ?
@@ -201,7 +201,7 @@ class UserGamesTable extends Component {
                                     <ArrowDropDown/>)}
                             </th>
                             <th onClick={this.sortByStatus} className="user-games-table-data-header" ref={this.statusRef}>
-                                <div className="user-games-table-header-name">Play Status</div>
+                                <div className="user-games-table-title-header">Play Status</div>
                                 {this.statusRef.current &&
                                 this.statusRef.current.classList.contains("sorted-header") &&
                                 (this.state.statusAscending ?
@@ -209,7 +209,7 @@ class UserGamesTable extends Component {
                                     <ArrowDropDown/>)}
                             </th>
                             <th onClick={this.sortByPlatform} className="user-games-table-data-header" ref={this.platformRef}>
-                                <div className="user-games-table-header-name">Platform</div>
+                                <div className="user-games-table-title-header">Platform</div>
                                 {this.platformRef.current &&
                                 this.platformRef.current.classList.contains("sorted-header") &&
                                 (this.state.platformAscending ?

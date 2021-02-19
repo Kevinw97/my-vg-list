@@ -5,7 +5,7 @@ import App from './components/App';
 import {ReactReduxFirebaseProvider} from "react-redux-firebase";
 import {createFirestoreInstance} from "redux-firestore";
 import firebase from './config/firebaseConfig';
-import "./styles/index.css";
+import "./styles/index.scss";
 import "bootstrap/dist/css/bootstrap.min.css"
 
 const rrfProps = {

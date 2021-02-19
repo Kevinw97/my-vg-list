@@ -99,7 +99,7 @@ class UserGamesTableRow extends Component {
                 <td>
                     <div className="user-games-table-image-container">
                         <NavLink to={"/games/" + game.id}>
-                            <img src={game.background_image} className="user-game-table-image" alt=""></img>
+                            <img src={game.background_image} className="user-games-table-image" alt=""></img>
                         </NavLink>
                     </div>
                 </td>

@@ -5,7 +5,7 @@ import {NavLink, withRouter} from 'react-router-dom';
 import {signOut} from "../actions/auth";
 import {isLoaded} from "react-redux-firebase";
 import {compose} from "redux";
-import "../styles/header.css"
+import "../styles/header.scss"
 
 const mapStateToProps = (state) => {
     return {

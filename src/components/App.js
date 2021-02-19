@@ -10,7 +10,7 @@ import GamePage from "./GamePage";
 import Signup from "./Signup";
 import Login from "./Login";
 import UserGameListing from "./UserGamesTable";
-import "../styles/app.css"
+import "../styles/app.scss"
 
 
 const mapStateToProps = (state) => {
@@ -56,9 +56,9 @@ export default compose(
                     }],
                     storeAs: "myGames",
                     orderBy: ["name"]
-                }]
+                }];
             }
-            return []
+            return [];
         }
     )
 )(App);

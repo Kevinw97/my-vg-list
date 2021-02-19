@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getGames} from '../actions/games'
 import GamesContainer from "./GamesContainer";
-import "../styles/games.css"
+import "../styles/games.scss"
 
 const mapStateToProps = (state) => {
     return {
