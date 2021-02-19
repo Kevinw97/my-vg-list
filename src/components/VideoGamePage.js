@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {getGame} from "../actions/games";
+import ReactHtmlParser from "react-html-parser";
 
 const mapStateToProps = (state) => {
     return {};
@@ -22,8 +23,11 @@ class VideoGamePage extends Component {
 
     render() {
         return (
-            <div>
-                <span>{this.state.game ? this.state.game.description : "Loading..."}</span>
+            <div className="pageContainer">
+                <div className="vgp-description">
+                    <h4>About</h4>
+                    {this.state.game ? ReactHtmlParser(this.state.game.description) : <p>"Loading..."</p>}
+                </div>
             </div>
         )
     }
