@@ -61,15 +61,19 @@ class GameListing extends Component {
                     }}>
                     </div>
                 </NavLink>
-                <Button onClick={this.addGameToUserList} disabled={this.shouldDisableButton()}>+</Button><span> {this.props.game.name}</span>
-                <br/>
-                <span>Platforms: {
-                    !_.isEmpty(this.props.game.platforms) ?
-                        this.props.game.platforms.map((platformObject) => platformObject.platform.name).join(", ") :
-                        <span>N/A</span>
-                }</span>
-                <br/>
-                <span>Metacritic score: {this.props.game.metacritic}</span>
+                <div className="game-listing-info">
+                    <NavLink to={"/games/" + this.props.game.id}>
+                        <h4> {this.props.game.name}</h4>
+                    </NavLink>
+                    <span>Platforms: {
+                        !_.isEmpty(this.props.game.platforms) ?
+                            this.props.game.platforms.map((platformObject) => platformObject.platform.name).join(", ") :
+                            <span>N/A</span>
+                    }</span>
+                    <span>Metacritic score: {this.props.game.metacritic}</span>
+                </div>
+                <Button className="game-add-button" onClick={this.addGameToUserList} disabled={this.shouldDisableButton()}>Add to my list</Button>
+
             </div>
         )
     }

@@ -1,27 +1,32 @@
+@import "colors";
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .header {
+    @include flexCenter;
     width: 100%;
     height: 50px;
-    display: flex;
     position: relative;
-    background-color: lightcyan;
-    justify-content: center;
+    background-color: $header;
 
     .inner-header {
         width: 60vw;
         height: 100%;
-        background-color: lightcyan;
+        background-color: $header;
         position: absolute;
     }
 
     .right-header {
+        @include flexCenter;
         margin-left: auto;
-        display: flex;
-        justify-content: center;
 
         .search {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            @include flexCenter;
+            align-items: center;
 
             .search-form {
                 padding: 0 30px;
@@ -36,11 +41,16 @@
 
         .navigation-button-link {
             padding: 10px 20px;
-        }
+            color: $header-button-text;
 
-        .navigation-button-link:hover {
-            text-decoration: none;
-            background-color: cyan;
+            &:hover {
+                text-decoration: none;
+                background-color: $header-button-hover;
+            }
+
+            &:active {
+                background-color: $header-button-active;
+            }
         }
     }
 }

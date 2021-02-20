@@ -1,3 +1,5 @@
+@import "colors";
+
 .page-container {
     display: flex;
     flex-direction: column;
@@ -17,14 +19,35 @@
     justify-content: space-evenly;
 
     .game-listing {
-        width: 20%;
+        display: flex;
+        flex-direction: column;
+        width: 18%;
         padding: 10px;
+        border-radius: 2%;
+        background-color: $game-listing;
+        margin: 15px 5px;
 
         .game-image {
             height: 200px;
             width: 100%;
             background-size: cover;
             background-position: center;
+            border-radius: 2%;
+        }
+
+        .game-listing-info {
+            margin: 10px 0px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-add-button {
+            margin-top: auto;
+            width: 100%;
+        }
+
+        &:hover {
+            background-color: $game-listing-hover;
         }
     }
 }
