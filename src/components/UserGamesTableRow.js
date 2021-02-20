@@ -97,11 +97,6 @@ class UserGamesTableRow extends Component {
             min:"0",
             step:"0.1"
         }
-        const ratingInputProps = {
-            min:"0",
-            max:"10",
-            step:"0.5"
-        }
         return (
             <tbody className="user-games-table-row-body">
             <tr>
@@ -114,14 +109,20 @@ class UserGamesTableRow extends Component {
                 </td>
                 <td className="user-games-table-name">
                     <NavLink to={"/games/" + game.id}>
-                        {game.name}
+                        <h5>{game.name}</h5>
                     </NavLink>
                 </td>
                 <td className="user-games-table-data">
                     <Input type="number" id="playtime-quantity" inputProps={playtimeInputProps} value={game.playtime} onChange={this.onPlaytimeChange} className="user-games-table-input"></Input>
                 </td>
                 <td className="user-games-table-data">
-                    <Input type="number" id="rating-quantity" inputProps={ratingInputProps} value={game.rating} onChange={this.onRatingChange} className="user-games-table-input"></Input>
+                    <Select value={game.rating} onChange={this.onRatingChange} className="user-games-table-select">
+                        {
+                            [0,0.5,1,1.5,2,2.5,3,3.5,4,4.5,5,5.5,6,6.5,7,7.5,8,8.5,9,9.5,10].map(rating => {
+                                return <MenuItem key={rating} value={rating}>{rating}</MenuItem>;
+                            })
+                        }
+                    </Select>
                 </td>
                 <td className="user-games-table-data">
                     <Select value={game.status} onChange={this.onStatusChange} className="user-games-table-select">

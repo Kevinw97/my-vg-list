@@ -1,13 +1,34 @@
-$body: #696969;
-$header: #4B4B4B;
+$header: #696969;
+$body: #4B4B4B;
+$link: #db95ff;
 $header-button-text: #ffffff;
 $header-button-hover: #737373;
 $header-button-active: #9B9B9B;
-$game-listing: #4B4B4B;
-$game-listing-hover: #737373;
+$game-listing: #2f2f2f;
+$game-listing-hover: #3c3c3c;
 $button-default: #a136ff;
-$button-default-hover: #b26dff;
+$button-default-hover: #a14dff;
 $button-default-border: #b72eff;
 $button-default-active: #b063ff;
 $button-default-border-active: #c757ff;
 $button-default-shadow: rgba(151, 57, 255, 0.5);
+$sign-up-card: #5d5d5d;
+$table-header: #a136ff;
+
+@mixin button-colors {
+  background-color: $button-default;
+  border-color: $button-default-border;
+
+  &:focus {
+    box-shadow: 0 0 0 0.2rem $button-default-shadow !important;
+  }
+
+  &:active {
+    background-color: $button-default-active !important;
+    border-color: $button-default-border-active !important;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: $button-default-hover;
+  }
+}

@@ -2,56 +2,95 @@
 
 .user-games-table-container {
 
-  .user-games-table-header {
+  .user-games-table {
+    margin-top: 20px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(0,0,0);
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
 
-    .user-games-table-title-header {
-      display: inline-block;
+    .user-games-table-header {
+      background-color: $table-header;
+      color: white;
+      cursor: pointer;
+
+      .user-games-table-data-header {
+        text-align: center;
+      }
+
+      .user-games-table-sortable-header {
+        display: inline-block;
+        height: 50px;
+        line-height: 50px;
+        vertical-align: middle;
+      }
     }
 
-    .user-games-table-data-header {
-      text-align: center;
-      vertical-align: middle;
+    .user-games-table-row-body {
+      border-bottom: 1px solid #dddddd;
+
+      &:nth-of-type(even) {
+        background-color:#f3f3f3;
+      }
+
+      &:last-of-type {
+        border-bottom: 3px solid #A136FF;
+      }
+
+      .user-games-table-name {
+        a {
+          color: #A136FF;
+        }
+      }
+
+      .user-games-table-image-container {
+        padding: 10px;
+
+        .user-games-table-image {
+          width: 80px;
+          height: 80px;
+          object-fit: cover;
+          box-shadow: 0 0 5px black;
+          border-radius: 10%;
+
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+
+      .user-games-table-data {
+        text-align: center;
+        vertical-align: middle;
+
+        .user-games-table-input {
+          width: 60px;
+
+          &:after {
+            border-bottom: 1px solid #A136FF;
+          }
+        }
+
+        .user-games-table-select {
+          width: 160px;
+
+          &:after {
+            border-bottom: 1px solid #A136FF;
+          }
+        }
+
+        .user-games-table-row-button {
+        }
+      }
     }
   }
 
-  .user-games-table-row-body {
-    height: 100px;
+  .user-games-table-buttons {
+    padding: 15px 0px;
 
-    .user-games-table-image {
-      width: 70px;
-      height: 70px;
-      object-fit: cover;
-    }
-
-    .user-games-table-data {
-      text-align: center;
-      vertical-align: middle;
-
-      .user-games-table-input {
-        width: 60px;
-        color: white;
-
-        &:before {
-          border-bottom: 1px solid rgba(255,255,255,0.5);
-        }
-
-        &:after {
-          border-bottom: 1px solid rgba(235,0,255,0.5);
-        }
-      }
-
-      .user-games-table-select {
-        width: 160px;
-        color: white;
-
-        &:before {
-          border-bottom: 1px solid rgba(255,255,255,0.5);
-        }
-
-        &:after {
-          border-bottom: 1px solid rgba(235,0,255,0.5);
-        }
-      }
+    .user-games-table-button {
+      width: 100%;
+      @include button-colors
     }
   }
 }

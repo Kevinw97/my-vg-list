@@ -5,7 +5,9 @@ import {NavLink, withRouter} from 'react-router-dom';
 import {signOut} from "../actions/auth";
 import {isLoaded} from "react-redux-firebase";
 import {compose} from "redux";
+import {Input} from "@material-ui/core";
 import "../styles/header.scss"
+import {Search} from "@material-ui/icons";
 
 const mapStateToProps = (state) => {
     return {
@@ -116,10 +118,12 @@ class Header extends Component {
                     <div className="search">
                         <div className="search-form">
                             <form onSubmit={this.searchSubmit}>
-                                <input
+                                <Search/>
+                                <Input
                                     type="text"
-                                    placeholder="Search..."
+                                    placeholder="Search for a game..."
                                     onChange={this.searchOnChange}
+                                    className="search-input"
                                 />
                             </form>
                         </div>

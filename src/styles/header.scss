@@ -31,6 +31,22 @@
             .search-form {
                 padding: 0 30px;
                 margin-right: 10px;
+
+                .search-input {
+                    color: white;
+
+                    &:before {
+                        border-bottom: 1px solid white;
+                    }
+
+                    &:before:hover {
+                        border-bottom: 2px solid white;
+                    }
+
+                    &:after {
+                        border-bottom: 2px solid #A136FF;
+                    }
+                }
             }
         }
     }

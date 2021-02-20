@@ -42,7 +42,7 @@ class Signup extends Component {
             <Container className="d-flex flex-column align-items-center justify-content-center sign-up-container">
                 <Card className="sign-up-card">
                     <Card.Body>
-                        <h2 className="text-center mb-4">Sign Up</h2>
+                        <h2 className="sign-up-header text-center mb-4">Sign Up</h2>
                         {this.props.error && <Alert variant="danger">{this.props.error}</Alert>}
                         <Form onSubmit={this.handleSubmit}>
                             <Form.Group id="email">
@@ -57,7 +57,7 @@ class Signup extends Component {
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control type="password" ref={this.passwordRef} required />
                             </Form.Group>
-                            <Button className="w-100" type="submit">Sign Up</Button>
+                            <Button className="sign-up-button w-100" type="submit">Sign Up</Button>
                         </Form>
                     </Card.Body>
                 </Card>
