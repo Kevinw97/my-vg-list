@@ -1,10 +1,17 @@
+@import "colors";
+
 body {
     margin: 0;
     padding: 0;
+    background-color: $body;
+    color: white;
 }
 
 a {
+    color: white;
+
     &:hover {
-        text-decoration: none !important;
+        text-decoration: none;
+        color: white;
     }
 }

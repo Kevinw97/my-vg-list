@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {getGames} from '../actions/games'
 import GamesContainer from "./GamesContainer";
-import "../styles/games.scss"
 import {Button} from "react-bootstrap";
+import "../styles/games.scss"
+import {ArrowLeft, ArrowRight} from "@material-ui/icons";
 
 const mapStateToProps = (state) => {
     return {
@@ -36,8 +37,8 @@ class Home extends Component {
             <div className="home page-container">
                 <GamesContainer />
                 <div className="page-navigation">
-                    <Button disabled={!this.props.previousPage} onClick={this.previousPage}>Previous</Button>
-                    <Button disabled={!this.props.nextPage} onClick={this.nextPage}>Next</Button>
+                    <Button className="page-navigation-button" disabled={!this.props.previousPage} onClick={this.previousPage}><ArrowLeft/></Button>
+                    <Button className="page-navigation-button" disabled={!this.props.nextPage} onClick={this.nextPage}><ArrowRight/></Button>
                 </div>
             </div>
         )
