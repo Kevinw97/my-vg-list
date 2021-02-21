@@ -5,9 +5,9 @@ import {NavLink, withRouter} from 'react-router-dom';
 import {signOut} from "../actions/auth";
 import {isLoaded} from "react-redux-firebase";
 import {compose} from "redux";
-import {Input} from "@material-ui/core";
+import {Button, Input} from "@material-ui/core";
 import "../styles/header.scss"
-import {Search} from "@material-ui/icons";
+import {Menu, Search} from "@material-ui/icons";
 
 const mapStateToProps = (state) => {
     return {
@@ -113,6 +113,9 @@ class Header extends Component {
                 <ul className="nav inner-header">
                     {this.headerButtons()}
                     {this.authButtons()}
+                    <Button className="inner-header-hamburger-menu">
+                        <Menu/>
+                    </Button>
                 </ul>
                 <ul className="nav right-header">
                     <div className="search">
@@ -128,6 +131,9 @@ class Header extends Component {
                             </form>
                         </div>
                     </div>
+                </ul>
+                <ul className="header-hamburger-menu">
+                    {/*TODO*/}
                 </ul>
             </div>
         )

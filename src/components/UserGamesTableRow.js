@@ -128,6 +128,7 @@ class UserGamesTableRow extends Component {
                     <Select value={game.status} onChange={this.onStatusChange} className="user-games-table-select">
                         <MenuItem value=""></MenuItem>
                         <MenuItem value="backlog">Backlog</MenuItem>
+                        <MenuItem value="dropped">Dropped</MenuItem>
                         <MenuItem value="playing">Playing</MenuItem>
                         <MenuItem value="complete">Completed</MenuItem>
                     </Select>
