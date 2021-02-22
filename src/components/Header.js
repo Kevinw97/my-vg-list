@@ -21,10 +21,12 @@ class Header extends Component {
         super(props);
         this.searchSubmit = this.searchSubmit.bind(this);
         this.signOut = this.signOut.bind(this);
+        this.toggleHamburgerMenu = this.toggleHamburgerMenu.bind(this);
     }
 
     state = {
-        searchValue: ""
+        searchValue: "",
+        showHamburgerMenu: false
     }
 
     signOut = event => {
@@ -50,58 +52,65 @@ class Header extends Component {
         if (isLoaded(this.props.auth)) {
             if (this.props.auth.uid) {
                 return (
-                    <li className="navigation-button-container" key="signout">
+                    <div className="navigation-button-container" key="signout">
                         <a href="/" className="navigation-button-link" onClick={this.signOut}>Log Out</a>
-                    </li>);
+                    </div>);
             } else {
                 return [
-                    <li className="navigation-button-container" key="signup">
+                    <div className="navigation-button-container" key="signup">
                         <NavLink to="/signup" className="navigation-button-link">
                             Sign Up
                         </NavLink>
-                    </li>,
-                    <li className="navigation-button-container" key="signin">
+                    </div>,
+                    <div className="navigation-button-container" key="signin">
                         <NavLink to="/login" className="navigation-button-link">
                             Log In
                         </NavLink>
-                    </li>
+                    </div>
                 ]
             }
         }
+    }
+
+    toggleHamburgerMenu() {
+        this.setState({
+            ...this.state,
+            showHamburgerMenu: !this.state.showHamburgerMenu
+        })
     }
 
     headerButtons() {
         if (isLoaded(this.props.auth)) {
             if (this.props.auth.uid) {
                 return[
-                    <li className="navigation-button-container" key="home">
+                    <div className="navigation-button-container" key="home">
                         <NavLink to="/" className="navigation-button-link">
                             Home
                         </NavLink>
-                    </li>,
-                    <li className="navigation-button-container" key="mylist">
+                    </div>,
+                    <div className="navigation-button-container" key="mylist">
                         <NavLink to="/mylist" className="navigation-button-link">
                             My List
                         </NavLink>
-                    </li>,
-                    <li className="navigation-button-container" key="about">
+                    </div>,
+                    <div className="navigation-button-container" key="about">
                         <NavLink to="/about" className="navigation-button-link">
                             About
                         </NavLink>
-                    </li>
+                    </div>
                 ];
             } else {
                 return[
-                    <li className="navigation-button-container" key="home">
+                    <div className="navigation-button-container" key="home">
                         <NavLink to="/" className="navigation-button-link">
                             Home
                         </NavLink>
-                    </li>,
-                    <li className="navigation-button-container" key="about">
+                    </div>,
+                    <div className="navigation-button-container" key="about">
                         <NavLink to="/about" className="navigation-button-link">
                             About
                         </NavLink>
-                    </li>
+                    </div>
                 ];
             }
         }
@@ -110,14 +119,14 @@ class Header extends Component {
     render() {
         return(
             <div className="header">
-                <ul className="nav inner-header">
+                <div className="nav inner-header">
                     {this.headerButtons()}
                     {this.authButtons()}
-                    <Button className="inner-header-hamburger-menu">
+                    <Button className="inner-header-hamburger-menu" onClick={this.toggleHamburgerMenu}>
                         <Menu/>
                     </Button>
-                </ul>
-                <ul className="nav right-header">
+                </div>
+                <div className="nav right-header">
                     <div className="search">
                         <div className="search-form">
                             <form onSubmit={this.searchSubmit}>
@@ -131,10 +140,11 @@ class Header extends Component {
                             </form>
                         </div>
                     </div>
-                </ul>
-                <ul className="header-hamburger-menu">
-                    {/*TODO*/}
-                </ul>
+                </div>
+                <div className={`header-hamburger-menu ${this.state.showHamburgerMenu ? "" : "hide-hamburger-menu"}`}>
+                    {this.headerButtons()}
+                    {this.authButtons()}
+                </div>
             </div>
         )
     }
