@@ -68,3 +68,24 @@
         }
     }
 }
+
+.game-page-container {
+
+    .game-page-description {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        padding: 40px 200px;
+
+        .game-page-background-image {
+            margin-top: -40px;
+            margin-left: -200px;
+            position: absolute;
+            background-size: cover;
+            background-position: center;
+            opacity: 0.3;
+            z-index: -9999;
+
+        }
+    }
+}
