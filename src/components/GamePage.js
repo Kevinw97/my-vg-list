@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Fragment} from 'react';
 import {connect} from "react-redux";
 import {getGame} from "../actions/games";
 import ReactHtmlParser from "react-html-parser";
@@ -53,27 +53,31 @@ class GamePage extends Component {
         return (
             <div className="page-container game-page-container">
                 {this.state.game ?
-                    <div className="game-page-description" ref={this.gamePageRef}>
-                        <div className="game-page-background-image" ref={this.gamePageBackgroundRef} style={{backgroundImage: `url(${this.state.game.background_image})`}}></div>
-                        <h2>{this.state.game.name}</h2>
-                        <br/>
-                        <br/>
-                        <h4>About</h4>
-                        <div className="game-page-description-about">
-                            {ReactHtmlParser(this.state.game.description)}
+                    <Fragment>
+                        <div className="game-page-description" ref={this.gamePageRef}>
+                            <div className="game-page-background-image" ref={this.gamePageBackgroundRef} style={{backgroundImage: `url(${this.state.game.background_image})`}}></div>
+                            <h2>{this.state.game.name}</h2>
+                            <br/>
+                            <br/>
+                            <h4>About</h4>
+                            <div className="game-page-description-about">
+                                {ReactHtmlParser(this.state.game.description)}
+                            </div>
+                            <br/>
+                            <h6>Platforms</h6>
+                            <span>{
+                                !_.isEmpty(this.state.game.platforms) ?
+                                    this.state.game.platforms.map((platformObject) => platformObject.platform.name).join(", ") :
+                                    <span>N/A</span>
+                            }</span>
+                            <br/>
+                            <h6>Website: <a href={this.state.game.website} target="_blank" rel="noreferrer">{this.state.game.website}</a></h6>
+                            <br/>
+                            <h6>{`Metacritic score: ${this.state.game.metacritic}`}</h6>
                         </div>
-                        <br/>
-                        <h6>Platforms</h6>
-                        <span>{
-                            !_.isEmpty(this.state.game.platforms) ?
-                                this.state.game.platforms.map((platformObject) => platformObject.platform.name).join(", ") :
-                                <span>N/A</span>
-                        }</span>
-                        <br/>
-                        <h6>Website: <a href={this.state.game.website} target="_blank" rel="noreferrer">{this.state.game.website}</a></h6>
-                        <br/>
-                        <h6>{`Metacritic score: ${this.state.game.metacritic}`}</h6>
-                    </div> :
+                        <span className="rawg-hyperlink" style={{textAlign: "center"}}>All game data is fetched using the <a href="https://rawg.io/" target="_blank" rel="noreferrer">RAWG.io</a> API</span>
+                    </Fragment>
+                     :
                     <p>"Loading..."</p>
                 }
 

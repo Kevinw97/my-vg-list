@@ -36,6 +36,7 @@ class Home extends Component {
         return(
             <div className="home page-container">
                 <GamesContainer />
+                <span className="rawg-hyperlink" style={{textAlign: "center"}}>All game data is fetched using the <a href="https://rawg.io/" target="_blank" rel="noreferrer">RAWG.io</a> API</span>
                 <div className="page-navigation">
                     <Button className="page-navigation-button" disabled={!this.props.previousPage} onClick={this.previousPage}><ArrowLeft/></Button>
                     <Button className="page-navigation-button" disabled={!this.props.nextPage} onClick={this.nextPage}><ArrowRight/></Button>

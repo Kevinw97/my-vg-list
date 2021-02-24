@@ -254,6 +254,7 @@ class UserGamesTable extends Component {
                     <Button disabled={this.shouldDisableUpdateButton()} className="user-games-table-button" onClick={this.updateGames}>
                         Update
                     </Button>
+                    <span className="rawg-hyperlink" style={{textAlign: "center"}}>All game data is fetched using the <a href="https://rawg.io/" target="_blank" rel="noreferrer">RAWG.io</a> API</span>
                 </div>
             </div>
         );
