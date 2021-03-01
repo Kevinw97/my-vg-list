@@ -14,7 +14,7 @@ const mapStateToProps = (state) => {
 class GamesContainer extends Component {
 
     componentDidMount() {
-        if (_.isEmpty(this.props.games.data)) {
+        if (_.isEmpty(this.props.games.data) && !this.props.games.isLoading) {
             this.props.dispatch(getGames());
         }
     }

@@ -42,7 +42,7 @@ class Header extends Component {
 
     searchSubmit = event => {
         this.props.dispatch(getGames({ params: {
-                search:this.state.searchValue
+                search: this.state.searchValue
             }}));
         this.props.history.push('/');
         event.preventDefault();
