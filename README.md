@@ -1,6 +1,6 @@
 # MyVGList
 
-Small web app using the https://rawg.io/ API to browse video games.
+Small web app using the https://rawg.io/ API to browse video games
 
 ## Functionality:
 * Browse video games with API calls to RAWG
